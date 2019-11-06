@@ -1212,6 +1212,10 @@ TopEnv['set-handler!'] = function(list) {
                       new Pair( this, theNil )), theNil)), true);
   }
 }
+/* (remove-handler! object name) */
+TopEnv['remove-handler!'] = function(list) {
+    list.car[list.cdr.car] = null;
+}
 TopEnv['list-props'] = function(list) {
   var r = theNil, i;
   for( i in list.car ) r = new Pair(i,r);
@@ -1721,6 +1725,39 @@ function showSymbols() {
 </script><!-- Scheme library -->
 <xmp id='lib' style="display:none">
 (define call/cc call-with-current-continuation)
+
+(define-syntax reset
+  (syntax-rules ()
+    ((reset ?e ...) (*reset (lambda () ?e ...)))))
+
+(define-syntax shift
+  (syntax-rules ()
+    ((shift ?k ?e ...) (*shift (lambda (?k) ?e ...)))))
+
+(define (*meta-continuation* v)
+  (error "You forgot the top-level reset..."))
+
+(define (*abort thunk)
+  (let ((v (thunk)))
+    (*meta-continuation* v)))
+
+(define (*reset thunk)
+  (let ((mc *meta-continuation*))
+    (call/cc
+     (lambda (k)
+       (set! *meta-continuation*
+             (lambda (v)
+               (set! *meta-continuation* mc)
+               (k v)))
+       (*abort thunk)))))
+
+(define (*shift f)
+  (call/cc
+   (lambda (k)
+     (*abort (lambda ()
+               (f (lambda (v)
+                    (reset (k v)))))))))
+
 (define (list . x) x)
 (define (not x) (if x #f #t))
 (define (negative? x) (< x 0))
