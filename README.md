@@ -1,12 +1,12 @@
 # jsScheme&mdash;Scheme in JavaScript
 
 ```jsScheme``` is a nearly complete implementation of R⁵RS Scheme language in
-JavaScript. It is described on Bluish Coder's website in a
+JavaScript. It is described on Chris Double's website in a
 [2006 blog post](https://bluishcoder.co.nz/2006/05/05/scheme-implementation-in-javascript.html).
 Archive.com has captured
 [the page on its Wayback Machine](https://web.archive.org/web/20190221081641/https://bluishcoder.co.nz/2006/05/05/scheme-implementation-in-javascript.html).
 The code can be run online on
-[a page of Bluish Coder's website](https://bluishcoder.co.nz/jsscheme/)
+[a page of Chris Double's website](https://bluishcoder.co.nz/jsscheme/)
 or on
 [Archive.com's capture](http://web.archive.org/web/20190221081543/https://bluishcoder.co.nz/jsscheme/).
 That version forms the initial commit to this Git repository.
