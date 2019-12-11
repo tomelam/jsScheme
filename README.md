@@ -72,6 +72,13 @@ the first is a function and the second is an operators
 sequencing.
 21. Tested in IE6 and Opera7.
 
+## License
+
+Copyright (c) 2003 by Alex Yakovlev. All rights reserved.
+Can be freely redisributed under
+[GPL, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+terms.
+
 ## References
 
 1. R. Kent Dybvig,
