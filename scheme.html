@@ -18,9 +18,6 @@ $(document).ready(function(){
   $("#concurrencyButton").bind("click", function() {
     $.get('concurrency.scm', function(result) { $('#txt').get(0).value=result })
   })
-  $("#libraryButton").bind("click", function() {
-    $('#txt').get(0).value=$('#lib').get(0).innerHTML
-  })
   $("#clearInputButton").bind("click", function() {
     $("#txt").get(0).value = ""
   })
@@ -31,14 +28,18 @@ $(document).ready(function(){
 </script>
 
 <h1>jsScheme - Scheme in JavaScript</h1>
-<a href="#changelog">Changelog</a> (Last Update 4 May 2006)
 <form name="f">
 <table border="0" cellspacing="0">
 <tr>
 <td valign="top">
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 <tr>
-<td rowspan="6" colspan="2">
+<td rowspan="1" colspan="3">
+<div id="foo">Input:</div>
+</td>
+</tr>
+<tr>
+<td rowspan="3" colspan="2">
 <textarea id="txt" cols="70" rows="10" onkeydown="key1(this)"
 onkeyup="key2(this)">
 </textarea></td>
@@ -47,20 +48,14 @@ onkeyup="key2(this)">
 <tr>
 <td><input id="clearInputButton" type="button" class="button" value="clear input"></td>
 </tr>
-<tr><td><input id="exampleButton" type="button" class="button" value="example"></td></tr>
-<tr><td><input id="concurrencyButton" type="button" class="button" value="concurrency"></td></tr>
-<tr>
-<td><input id="libraryButton" type="button" class="button" value="library"></td>
-</tr>
-<tr>
 <td><input id="clearLogButton" type="button" class="button" value="clear log"></td>
 </tr>
 <tr>
 <td width="5%">
-<h3>Result:</h3>
+<div>Result:</div>
 </td>
-<td colspan="2" align="center">
-<p id="time">&nbsp;</p>
+<td colspan="2" align="left">
+<div id="time">&nbsp;</div>
 <!-- p>Click on '(' to change horizontal/vertical flow, on cell to edit it</p --></td>
 </tr>
 <tr>
@@ -74,10 +69,10 @@ onkeyup="key2(this)">
 </tr>
 <tr>
 <td>
-<h3>Log:</h3>
+<div>Log:</div>
 </td>
 <td align="center" colspan="2">
-<p><input type="checkbox" id="echoInp" checked><label for=
+<p style="display:none"><input type="checkbox" id="echoInp" checked><label for=
 "echoInp">log input</label> &nbsp; <input type="checkbox" id=
 "echoRes" checked><label for="echoRes">log results</label> &nbsp;
 <input type="checkbox" id="jit"><label for=
@@ -89,123 +84,46 @@ onkeyup="key2(this)">
 <textarea id="log" cols="90" rows="8">
 </textarea>
  <iframe id="hf" style="display:none"></iframe>
-<h3>Features:</h3>
+<h3>jsScheme License:</h3>
 <ul>
-<li>Proper tail-recursion</li>
-<li>First-class continuations with even
-<code>dynamic-wind</code></li>
-<li>Boolean, string, number, char, and vector data types (no
-complex / rational numbers)</li>
-<li>Limited <code>syntax-rules</code> transformer (written in
-Scheme; no nested ellipsis ('...') and vectors support)</li>
-<li>Optional just-in-time compilation to javascript (does not
-support continuations; library can be pre-compiled with
-<code>(compile-lib)</code> and inserted in <code>init()</code> -
-this will speed up loading in price of ~200Kb; <a href=
-"javascript-scheme.tar.gz">download it</a>)</li>
-<li>Almost no error checking</li>
-<li>No I/O like <code>load</code>, <code>read-char</code>,
-<code>open-input-file</code>, etc.</li>
-<li>Limited <code>values</code> support (only first value is
-displayed; all continuations may receive multiple values, not only
-those created with <code>call-with-values</code>):
-<pre>
-(values 1 2 3)  =&gt;  1
-(+ (values 1 2 3))  =&gt;  6
-(list (values 1 2 3))  =&gt;  (1 2 3)
-(call-with-values (lambda () (values 1 2 3)) +)  =&gt;  6
-</pre></li>
-<li>Predicates like <code>=</code> and <code>string&gt;?</code>
-takes only 2 arguments, but can be extended in this way:
-<pre>
-(define &lt; ((lambda() (define old&lt; &lt;)
-  (lambda (x y . rest)
-    (if (old&lt; x y)
-        (if (null? rest)
-            #t
-            (apply &lt; y rest))
-        #f)))))
-(&lt; 1 2 3 4 5)  =&gt;  #t
-(&lt; 1 2 3 4 3)  =&gt;  #f
-</pre></li>
-<li><code>map</code> works on improper lists:
-<pre>
-(map + '(1 2 . 3) '(40 20 . 10))  =&gt;  (41 22 . 13)
-(map + 14 9)  =&gt;  23
-</pre></li>
-<li>Most of R<sup>5</sup>RS features / library is implemented</li>
-<li>Passes all <code>r5rs_pitfall.scm</code> tests (included in
-SISC)</li>
-<li>Strings are immutable; no <code>string-fill!</code> and
-<code>string-set!</code></li>
-<li><code>begin</code> is a primitive language expression (same as
-<code>lambda</code>, <code>if</code>, <code>define</code>,
-<code>set!</code> and <code>quote</code>) not derived/library as
-R<sup>5</sup>RS defines; moreover, <code>lambda</code> bodies with
-several statements are enclosed in <code>begin</code> in internal
-representation to emphasize that they express different concepts -
-the first is a function and the second is an operators
-sequencing</li>
-<li>Written 23 July - 8 August, 2003</li>
 <li>Copyright (c) 2003 by Alex Yakovlev. All rights reserved.</li>
 <li>Can be freely redisributed under <a href=
-"http://www.gnu.org/licenses/gpl.html">GPL</a> terms.</li>
-<li>Tested in IE6 and Opera7</li>
+"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GPL, version 2</a> terms.</li>
 </ul>
-<h3>Links:</h3>
-<ul>
-<li><a href="http://www.scheme.com/tspl2d/">R. Kent Dybvig, The
-Scheme Programming Language, Second Edition</a></li>
-<li><a href=
-"http://www.schemers.org/Documents/Standards/R5RS/">Revised<sup>5</sup>
-Report on the Algorithmic Language Scheme</a>
-(R<sup>5</sup>RS)</li>
-<li><a href="http://mitpress.mit.edu/sicp/sicp.html">Structure and
-Interpretation of Computer Programs</a></li>
-<li><a href="http://okmij.org/ftp/Scheme/">Oleg Kiselyov Scheme
-page</a></li>
-<li><a href="http://www.pair.com/lisovsky/scheme/">Kirill Lisovsky
-Scheme page</a></li>
-<li><a href="http://www.plt-scheme.org/">PLT Scheme</a></li>
-<li><a href="lisp.html">Alex's old Lisp interpreter in C</a></li>
-</ul>
-<p>other implementations in JS:</p>
-<ul>
-<li><a href="http://www.bluetail.com/~luke/jscm/repl.html">by Luke
-Gorrie</a></li>
-<li><a href="http://www.crockford.com/javascript/scheme.html">by
-Douglas Crockford</a></li>
-<li><a href="http://ganley.org/software/jslisp.html">by Joe
-Ganley</a> (Lisp, not Scheme)</li>
-</ul>
-<p>in Java:</p>
-<ul>
-<li><a href="http://www.gnu.org/software/kawa/">Kawa</a> (by Per
-Bothner), both interpreter and compiler to java bytecode</li>
-<li><a href="http://www.alphaworks.ibm.com/formula/skij/">Skij</a>
-- by IBM T.J. Watson Research Center, the same group who developed
-<a href=
-"http://www.ibm.com/developerworks/oss/jikes/">Jikes</a></li>
-<li><a href="http://sisc.sourceforge.net/">SISC - Second
-Interpreter of Scheme Code</a>, R5RS compliant</li>
-<li><a href="http://www-sop.inria.fr/mimosa/fp/Bigloo/">Bigloo
-compiler</a> (very efficient) - can produce java bytecode</li>
-</ul>
+<a name="changelog">
+<h3>jsScheme Changelog:</h3>
+<dl>
+<dt>10 December 2019</dt>
+<dd>Changes by <a href="mailto:tomelam@gmail.com">Tom Elam</a>. Cleared the page to focus attention on the input and log.</dd>
+<dt>07 December 2019</dt>
+<dd>Changes by <a href="mailto:cy@ngs.ru">Alexander Sukhoverkhov</a>. Added shift, reset, and remove-handler!.</dd>
+<dt>04 May 2006</dt>
+<dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
+Double</a>. Added <a href="http://jquery.com/">jQuery</a> for Ajax support. Split 'example' source into a seperate file and load it via Ajax. Added Scheme Ajax function 'ajax-get'. Added a simple <a href="http://lambda-the-ultimate.org/node/841">termite-style</a> concurrency library. <a href="http://www.bluishcoder.co.nz/2006/05/lightweight-threads-in-browser.html">More details here</a>.</dd>
+<dt>03 May 2006</dt>
+<dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
+Double</a>. Added Firefox compatibility and set-timeout!. For more
+details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">my weblog entry</a>.</dd>
+<dt>23 July - 8 August, 2003</dt>
+<dd>Original by <a href=
+"javascript:m('alex','alexgraf.com')">Alex Yakovlev</a> from <a
+href="http://alex.ability.ru/scheme.html">http://alex.ability.ru/scheme.html</a>.</dd>
+</dl>
 </td>
 </tr>
 </table>
 </td>
 <td valign="top">
 
-<h3>Symbols:</h3>
-<ul>
+<h3 style="display:none">Symbols:</h3>
+<ul style="display:none">
 <li><a href="javascript:ShowEnv=TopEnv;showSymbols();">work
 environment</a></li>
 <li><a href=
 "javascript:ShowEnv=TopEnv.parentEnv;showSymbols();">core
 environment</a></li>
 </ul>
-<table border="0" id="symbols" cellspacing="1" cellpadding="2">
+<table style="display:none" border="0" id="symbols" cellspacing="1" cellpadding="2">
 <tbody>
 </tbody>
 </table>
@@ -1485,6 +1403,16 @@ e['transform']=new Lambda(new Pair(getSymbol('ex'),theNil),new Pair(getSymbol('i
   //
   ShowEnv = TopEnv = new Env(TopEnv);
   showSymbols();
+
+  $('#txt').get(0).value=$('#lib').get(0).innerHTML;
+  clickEval();
+  $("#txt").get(0).value = "";
+  $("#log").get(0).value = "";
+  $('#txt').get(0).value=$('#util').get(0).innerHTML;
+  clickEval();
+  $("#txt").get(0).value = "";
+  $("#log").get(0).value = "";
+  document.getElementById('out').innerHTML = "";
 }
 
 //
@@ -1605,7 +1533,7 @@ function key2(srcElement) {
   var buf2 = srcElement.value;
   var re = /(\n|\r\n){2}$/;
   if( !re.test(buf1) && re.test(buf2) ) {
-    clickEval(); buf1 = buf2;
+    clickEval('txt'); buf1 = buf2;
   }
 }
 
@@ -2676,20 +2604,57 @@ function showSymbols() {
           (map+ transform ex))
       ex))
 </xmp>
-<a name="changelog">
-<h3>Changelog</h3>
-<dl>
-<dt>04 May 2006</dt>
-<dd>Added <a href="http://jquery.com/">jQuery</a> for Ajax support. Split 'example' source into a seperate file and load it via Ajax. Added Scheme Ajax function 'ajax-get'. Added a simple <a href="http://lambda-the-ultimate.org/node/841">termite-style</a> concurrency library. <a href="http://www.bluishcoder.co.nz/2006/05/lightweight-threads-in-browser.html">More details here</a>.</dd>
-<dt>03 May 2006</dt>
-<dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
-Double</a>. Added Firefox compatibility and set-timeout!. For more
-details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">my weblog entry</a>.</dd>
-<dt>Original</dt>
-<dd>Original by <a href=
-"javascript:m('alex','alexgraf.com')">Alex Yakovlev</a> from <a
-href="http://alex.ability.ru/scheme.html">http://alex.ability.ru/scheme.html</a>.</dd>
-</dl>
-
+<xmp id='util' style="display:none">
+(define (id-element id)
+  (js-eval (string-append "document.getElementById('" id "')")))
+(define first car)
+(define second cadr)
+(define third caddr)
+(define rest cdr)
+(define (displayln text)
+  (display text)
+  (newline))
+;
+(define (input-listener-cont . args)
+  (display "Handler called with no listener continuation up"))
+(define-syntax with-handlers
+  (syntax-rules ()
+    ((with-handlers handlers body ...)
+     (begin
+       (setup-handlers handlers)
+       (begin body ...)
+       (remove-handlers handlers)))))
+(define (setup-handlers handlers)
+  (process-handlers handlers second))
+(define (remove-handlers handlers)
+  (process-handlers handlers third))
+(define (process-handlers handlers part)
+  (map (lambda (handler)
+         (let ((handler-func (part (assq (first handler) handlers-impl)))
+               (handler-args (rest handler)))
+           (apply handler-func handler-args)))
+       handlers))
+(define handlers-impl
+  (list
+   (list 'click-handler
+         (lambda (id)
+           (set-handler! (id-element id) "onclick" 'on-click-handler))
+         (lambda (id)
+           (remove-handler! (id-element id)  "onclick")))
+   (list 'timeout-handler
+         (lambda (timeout)
+           (set-timeout! 'on-timeout-handler timeout))
+         (lambda (timeout)
+           #f))))
+(define (on-click-handler this event)
+  (input-listener-cont (list 'click this)))
+(define (on-timeout-handler)
+  (input-listener-cont (list 'timeout)))
+;
+(define-syntax get-input
+  (syntax-rules ()
+    ((get-input)
+     (shift c (set! input-listener-cont c)))))
+</xmp>
 </body>
 </html>
