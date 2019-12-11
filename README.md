@@ -72,6 +72,13 @@ the first is a function and the second is an operators
 sequencing.
 21. Tested in IE6 and Opera7.
 
+## Bugs
+
+Chris Double wrote
+[a blog post about a bug](https://bluishcoder.co.nz/2006/05/07/why-scheme-javascript-jit-doesnt-work.html),
+[captured by Archive.org](http://web.archive.org/web/20100513142047/http://www.bluishcoder.co.nz/2006/05/why-scheme-javascript-jit-doesnt-work.html)
+in the Scheme-to-JavaScript just-in-time (JIT) compiler.
+
 ## License
 
 Copyright (c) 2003 by Alex Yakovlev. All rights reserved.
