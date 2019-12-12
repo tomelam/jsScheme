@@ -1,0 +1,83 @@
+<h1>Quick Reference to jsScheme's Foreign Function Interface (FFI)</h1>
+<h2>The <code>js-eval</code> and <code>js-invoke</code> Primatives</h2>
+<p>The <code>js-eval</code> and <code>js-invoke</code> primatives cause one or more of
+their arguments to be passed to the JavaScript environment to be
+evaluated. If and when a value returned from the JavaScript environment
+is an integer or string, it can be used as the corresponding type,
+i.e. an integer or string, respectively, in jsScheme. Examples:</p>
+<h3>The <code>js-eval</code> Primative</h3>
+<p>The <code>js-eval</code> primative takes a string as an argument and executes it as
+a line of JavaScript, i.e. passes it to the JavaScript environment
+to be evaluated. Examples:</p>
+<ul>
+<li>If the following has already been evaluated in JavaScript:</li>
+</ul>
+<pre><code>		function foo(a, b) { console.log(a); console.log(b); }
+</code></pre>
+<pre><code>	then
+</code></pre>
+<pre><code>		(js-eval &quot;foo(0,1)&quot;) =&gt; #null
+</code></pre>
+<pre><code>	and in the JavaScript console
+</code></pre>
+<pre><code>		0
+		1
+</code></pre>
+<ul>
+<li><code>js-eval</code> can return a JavaScript object to jsScheme and store it
+in a variable:</li>
+</ul>
+<pre><code>		(define d  (js-eval &quot;new Date();&quot;)) =&gt; #obj&lt;Date&gt;
+</code></pre>
+<ul>
+<li>Combining strings using <code>string-append</code> and careful quoting to build
+an argument for <code>js-eval</code>:</li>
+</ul>
+<pre><code>		(define (id-element id)
+		  (js-eval (string-append &quot;document.getElementById('&quot; id &quot;')&quot;))) =&gt; #lambda
+		(id-element &quot;foo&quot;) =&gt; #obj&lt;HTMLDivElement&gt;
+</code></pre>
+<h3>The <code>js-invoke</code> Primative</h3>
+<p>The <code>js-invoke</code> primative takes a JavaScript object as its first
+argument, the name of a method of that object, and zero to three
+arguments to that method. It invokes the method on the object.
+(The number of arguments the method can accept is hard coded inside jsScheme,
+but jsScheme could easily be modified to allow it to accept more.) Examples:</p>
+<ul>
+<li>Invoking a method on a stored JavaScript object:</li>
+</ul>
+<pre><code>		(define d (js-eval &quot;new Date();&quot;)) =&gt; #obj&lt;Date&gt;
+		(display (js-invoke d &quot;toString&quot;)) =&gt; Fri Dec 13 2019 02:03:05 GMT+0530 (India Standard Time)=&gt; #null
+</code></pre>
+<ul>
+<li>Invoking a method immediately after getting a JavaScript object:</li>
+</ul>
+<pre><code>		(display (js-invoke (js-eval &quot;new Date();&quot;) &quot;toString&quot;)) =&gt; Fri Dec 13 2019 02:08:47 GMT+0530 (India Standard Time)=&gt; #null
+</code></pre>
+<ul>
+<li>Passing an argument to the invoked method:</li>
+</ul>
+<pre><code>		(define divs (js-eval &quot;$('div')&quot;)) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;
+		(js-invoke divs &quot;get&quot; 2) =&gt; #obj&lt;HTMLDivElement&gt;
+</code></pre>
+<ul>
+<li>Getting a single HTML element from a jQuery query set using the query set's
+<code>get</code> method:</li>
+</ul>
+<pre><code>		(define divs (js-eval &quot;$('div')&quot;)) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;
+		(define div (js-invoke divs &quot;get&quot; 0)) =&gt; #obj&lt;HTMLDivElement&gt;
+		(js-invoke div &quot;getAttribute&quot; &quot;id&quot;) =&gt; &quot;foo&quot;
+		(define div (js-invoke divs &quot;get&quot; 2)) =&gt; #obj&lt;HTMLDivElement&gt;
+		(js-invoke div &quot;getAttribute&quot; &quot;id&quot;) =&gt; &quot;time&quot;
+</code></pre>
+<ul>
+<li>Getting a single HTML element of a jQuery query set using Scheme's
+procedure <code>vector-ref</code>:</li>
+</ul>
+<pre><code>		(define divs (js-invoke (js-eval &quot;$('div')&quot;) &quot;toArray&quot;)) =&gt; #(#obj&lt;HTMLDivElement&gt; #obj&lt;HTMLDivElement&gt; #obj&lt;HTMLDivElement&gt;
+		(define div (vector-ref divs 2)) =&gt; #obj&lt;HTMLDivElement&gt;
+		(js-invoke div &quot;getAttribute&quot; &quot;id&quot;) =&gt; &quot;time&quot;
+</code></pre>
+<h2>Manipulating the DOM</h2>
+<p>jsScheme uses jsQuery v3.4.1. <code>js-eval</code> and <code>js-invoke</code> can be used
+to access it.</p>
