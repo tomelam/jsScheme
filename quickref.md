@@ -22,7 +22,7 @@ to be evaluated. Examples:
 ```
 		(js-eval "foo(0,1)") => #null
 ```
-		and in the JavaScript console
+		and in the JavaScript console the following gets printed:
 ```
 		0
 		1
