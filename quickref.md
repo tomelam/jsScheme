@@ -1,16 +1,16 @@
 # Quick Reference to jsScheme's Foreign Function Interface (FFI)
 
-## The ```js-eval``` and ```js-invoke``` Primatives
+## The ```js-eval``` and ```js-invoke``` Primitives
 
-The ```js-eval``` and ```js-invoke``` primatives cause one or more of
+The ```js-eval``` and ```js-invoke``` primitives cause one or more of
 their arguments to be passed to the JavaScript environment to be
 evaluated. If and when a value returned from the JavaScript environment
 is an integer or string, it can be used as the corresponding type,
 i.e. an integer or string, respectively, in jsScheme. Examples:
 
-### The ```js-eval``` Primative
+### The ```js-eval``` Primitive
 
-The ```js-eval``` primative takes a string as an argument and executes it as
+The ```js-eval``` primitive takes a string as an argument and executes it as
 a line of JavaScript, i.e. passes it to the JavaScript environment
 to be evaluated. Examples:
 
@@ -41,9 +41,9 @@ an argument for ```js-eval```:
 		(id-element "foo") => #obj<HTMLDivElement>
 ```
 
-### The ```js-invoke``` Primative
+### The ```js-invoke``` Primitive
 
-The ```js-invoke``` primative takes a JavaScript object as its first
+The ```js-invoke``` primitive takes a JavaScript object as its first
 argument, the name of a method of that object, and zero to three
 arguments to that method. It invokes the method on the object.
 (The number of arguments the method can accept is hard coded inside jsScheme,

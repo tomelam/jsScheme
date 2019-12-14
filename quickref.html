@@ -1,12 +1,12 @@
 <h1>Quick Reference to jsScheme's Foreign Function Interface (FFI)</h1>
-<h2>The <code>js-eval</code> and <code>js-invoke</code> Primatives</h2>
-<p>The <code>js-eval</code> and <code>js-invoke</code> primatives cause one or more of
+<h2>The <code>js-eval</code> and <code>js-invoke</code> Primitives</h2>
+<p>The <code>js-eval</code> and <code>js-invoke</code> primitives cause one or more of
 their arguments to be passed to the JavaScript environment to be
 evaluated. If and when a value returned from the JavaScript environment
 is an integer or string, it can be used as the corresponding type,
 i.e. an integer or string, respectively, in jsScheme. Examples:</p>
-<h3>The <code>js-eval</code> Primative</h3>
-<p>The <code>js-eval</code> primative takes a string as an argument and executes it as
+<h3>The <code>js-eval</code> Primitive</h3>
+<p>The <code>js-eval</code> primitive takes a string as an argument and executes it as
 a line of JavaScript, i.e. passes it to the JavaScript environment
 to be evaluated. Examples:</p>
 <ul>
@@ -37,8 +37,8 @@ an argument for <code>js-eval</code>:</li>
 		  (js-eval (string-append &quot;document.getElementById('&quot; id &quot;')&quot;))) =&gt; #lambda
 		(id-element &quot;foo&quot;) =&gt; #obj&lt;HTMLDivElement&gt;
 </code></pre>
-<h3>The <code>js-invoke</code> Primative</h3>
-<p>The <code>js-invoke</code> primative takes a JavaScript object as its first
+<h3>The <code>js-invoke</code> Primitive</h3>
+<p>The <code>js-invoke</code> primitive takes a JavaScript object as its first
 argument, the name of a method of that object, and zero to three
 arguments to that method. It invokes the method on the object.
 (The number of arguments the method can accept is hard coded inside jsScheme,
