@@ -148,6 +148,6 @@ is needed to resume the computation. Programming is therefore safer, easier and 
 
 1. [The final program in the tutorial 'More: Systems Programming with Racket'](https://docs.racket-lang.org/more/step9.txt)
 
-	A secure, multi-threaed, servlet-extensible, continuation-based web server in 153 lines of Scheme, described in the paper listed above 'More: Systems Programming with Racket'. 
+	A secure, multi-threaed, servlet-extensible, continuation-based web server in 153 lines of Scheme, described in the paper listed above, 'More: Systems Programming with Racket'. 
 
 1. [Software for BiwaScheme](https://github.com/search?q=biwascheme)
