@@ -23,11 +23,11 @@ updated.
 
 	People outside our field often don't relaize just how easy it is to implement languages: This project, for example, uses a recursive descent parser, and the entire compiler is 1081 lines of Javascript code.
 
-1. [Control Delimiters and Their Hierarchies](https://github.com/rain-1/continuations-study-group/blob/master/papers/(1990)%20Control%20Delimiters%20and%20Their%20Hierarchies%20-%20Dorai%20Sitaram%2C%20Matthias%20Felleisen.pdf)
+1. [Control Delimiters and Their Hierarchies](https://github.com/rain-1/continuations-study-group/blob/master/papers/(1990)%20Control%20Delimiters%20and%20Their%20Hierarchies%20-%20Dorai%20Sitaram%2C%20Matthias%20Felleisen.pdf) (Sitaram90)
 
 	Abstract:
 
-	"Since control operators for the _unrestricted_ transfer of control are too powerful in many situations, we propose the _control delimiter_ as a means for restricting control manipulations and study its use in Lisp- and Sheme-like languages. In a Compon Lisp-like setting, the concept of delimiting control provides a well-suited terminology for explaining different control constructs. For higher-order languess like Scheme, the control delimiter is the means for embedding Lisp control constructs faithfully and for realizing high-level control abstractions elegantly. A deeper analysis of the examples suggests a need for an entire _control hierarchy_ of such delimiters. We show how to implement such a hierarchy on toop of the simple version of a control delimiter."
+	"Since control operators for the _unrestricted_ transfer of control are too powerful in many situations, we propose the _control delimiter_ as a means for restricting control manipulations and study its use in Lisp- and Sheme-like languages. In a Common Lisp-like setting, the concept of delimiting control provides a well-suited terminology for explaining different control constructs. For higher-order languages like Scheme, the control delimiter is the means for embedding Lisp control constructs faithfully and for realizing high-level control abstractions elegantly. A deeper analysis of the examples suggests a need for an entire _control hierarchy_ of such delimiters. We show how to implement such a hierarchy on top of the simple version of a control delimiter."
 
 1. [Continuations in Programming Practice: Introduction and Survey](https://www.cs.indiana.edu/~sabry/papers/continuations.ps)
 
@@ -122,6 +122,10 @@ is needed to resume the computation. Programming is therefore safer, easier and 
 
 	"To get into the spirit of this tutorial, we suggest that you set DrRacket aside for a moment, and switch to raw racket in a terminal. You'll also need a text editor, such as Emacs, vi, or even Notepad--any editor will do, but one that supports parenthesis matching would be helpful. Finally, you'll need a web client, perhaps Lynx or Firefox."
 
+1. [The bibliography at the end of the tutorial 'More: Systems Programming with Racket'](https://docs.racket-lang.org/more/#%28part._doc-bibliography%29)
+
+	Papers related to the tutorial on the Racket website.
+
 1. [The Racket website's bibliography](https://docs.racket-lang.org/reference/doc-bibliography.html)
 
 	Seminal papers in Scheme develpment.
@@ -130,6 +134,20 @@ is needed to resume the computation. Programming is therefore safer, easier and 
 
 	Christian Queinnec has written a lot on Scheme, continuations, and web continuations. Here is a comprehensive list of his publications.
 
-1. [rain-1's Github repository 'continuations-study-group'](https://docs.racket-lang.org/reference/doc-bibliography.html)
+1. [rain-1's Github repository 'continuations-study-group'](https://github.com/rain-1/continuations-study-group/tree/master/papers)
 
 	About 30-40 research papers related to Scheme and continuations, as PDFs.
+
+## Software
+
+1. [jsScheme](https://github.com/tomelam/jsScheme)
+
+1. [Sequential Web-Application Demo](https://github.com/tomelam/jsScheme)
+
+1. [BiwaScheme](https://www.biwascheme.org/)
+
+1. [The final program in the tutorial 'More: Systems Programming with Racket'](https://docs.racket-lang.org/more/step9.txt)
+
+	A secure, multi-threaed, servlet-extensible, continuation-based web server in 153 lines of Scheme, described in the paper listed above 'More: Systems Programming with Racket'. 
+
+1. [Software for BiwaScheme](https://github.com/search?q=biwascheme)
