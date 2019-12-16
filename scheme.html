@@ -2694,12 +2694,15 @@ function showSymbols() {
     (($ selector method)
      (js-invoke
       (js-eval (string-append "$(" (make-js-string selector) ")")) method))
-    (($ selector method method-arg)
+    (($ selector method arg)
      (js-invoke
-      (js-eval (string-append "$(" (make-js-string selector) ")")) method method-arg))))
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method arg))))
 
 (define ($wrap element)
   (js-call (js-eval "$") element))
+
+(define (add-el query selector relative-position html)
+  (js-invoke ($ query selector) relative-position html))
 </xmp>
 </body>
 </html>
