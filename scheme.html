@@ -1,142 +1,149 @@
 <html>
-<head>
-<title>jsScheme - Scheme interpreter in JavaScript</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<style type="text/css">
-TABLE { background: #A0A0A0; }
-TD { background: white; }
-.button { width: 100 }
-</style>
-</head>
-<body onload="init()">
-<script type="text/javascript">
-$(document).ready(function(){
-  $("#evalButton").bind("click", function() { clickEval() })
-  $("#exampleButton").bind("click", function() {
-    $.get('example.scm', function(result) { $('#txt').get(0).value=result })
-  })
-  $("#concurrencyButton").bind("click", function() {
-    $.get('concurrency.scm', function(result) { $('#txt').get(0).value=result })
-  })
-  $("#clearInputButton").bind("click", function() {
-    $("#txt").get(0).value = ""
-  })
-  $("#clearLogButton").bind("click", function() {
-    $("#log").get(0).value = ""
-  })
-})
-</script>
+  <head>
+    <title>jsScheme - Scheme interpreter in JavaScript</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style type="text/css">
+      TABLE { background: #A0A0A0; }
+      TD { background: white; }
+      .button { width: 100 }
+    </style>
+  </head>
+  <body onload="init()">
+    <script type="text/javascript">
+      $(document).ready(function(){
+	  $("#evalButton").bind("click", function() { clickEval() })
+	  $("#exampleButton").bind("click", function() {
+	      $.get('example.scm', function(result) { $('#txt').get(0).value=result })
+	  })
+	  $("#concurrencyButton").bind("click", function() {
+	      $.get('concurrency.scm', function(result) { $('#txt').get(0).value=result })
+	  })
+	  $("#userCodeButton").bind("click", function() {
+	      $.get('user-code.scm', function(result) { $('#txt').get(0).value=result })
+	  })
+	  $("#clearInputButton").bind("click", function() {
+	      $("#txt").get(0).value = ""
+	  })
+	  $("#clearLogButton").bind("click", function() {
+	      $("#log").get(0).value = ""
+	  })
+      })
+    </script>
 
-<h1>jsScheme - Scheme in JavaScript</h1>
-<form name="f">
-<table border="0" cellspacing="0">
-<tr>
-<td valign="top">
-<table width="100%" border="0" cellspacing="0" cellpadding="3">
-<tr>
-<td rowspan="1" colspan="3">
-<div id="foo">Input:</div>
-</td>
-</tr>
-<tr>
-<td rowspan="3" colspan="2">
-<textarea id="txt" cols="70" rows="10" onkeydown="key1(this)"
-onkeyup="key2(this)">
-</textarea></td>
-<td><input id="evalButton" type="button" class="button" value="eval"></td>
-</tr>
-<tr>
-<td><input id="clearInputButton" type="button" class="button" value="clear input"></td>
-</tr>
-<td><input id="clearLogButton" type="button" class="button" value="clear log"></td>
-</tr>
-<tr>
-<td width="5%">
-<div>Result:</div>
-</td>
-<td colspan="2" align="left">
-<div id="time">&nbsp;</div>
-<!-- p>Click on '(' to change horizontal/vertical flow, on cell to edit it</p --></td>
-</tr>
-<tr>
-<td colspan="3">
-<table border="0" cellspacing="1" cellpadding="5">
-<tr>
-<td id="out">&nbsp;</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<div>Log:</div>
-</td>
-<td align="center" colspan="2">
-<p style="display:none"><input type="checkbox" id="echoInp" checked><label for=
-"echoInp">log input</label> &nbsp; <input type="checkbox" id=
-"echoRes" checked><label for="echoRes">log results</label> &nbsp;
-<input type="checkbox" id="jit"><label for=
-"jit">Just-in-time compilation</label></p>
-</td>
-</tr>
-<tr>
-<td colspan="3" valign="top">
-<textarea id="log" cols="90" rows="8">
-</textarea>
- <iframe id="hf" style="display:none"></iframe>
-<h3>jsScheme License:</h3>
-<ul>
-<li>Copyright (c) 2003 by Alex Yakovlev. All rights reserved.</li>
-<li>Can be freely redisributed under <a href=
-"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GPL, version 2</a> terms.</li>
-</ul>
-<a name="changelog">
-<h3>jsScheme Changelog:</h3>
-<dl>
-<dt>10 December 2019</dt>
-<dd>Changes by <a href="mailto:tomelam@gmail.com">Tom Elam</a>.
-Emptied the page of distractions to focus attention on the input and log.
-Added syntax and utilities written by
-<a href="mailto:cy@ngs.ru">Alexander Sukhoverkhov</a>: 
-syntax: <code>with-handlers</code> and <code>get-input</code>; utilities:
-<code>first</code>, <code>second</code>, <code>third</code>, <code>rest</code>,
-<code>nth</code>, and <code>displayln</code>.</dd>
-<dt>07 December 2019</dt>
-<dd>Changes by <a href="mailto:cy@ngs.ru">Alexander Sukhoverkhov</a>. Added shift, reset, and remove-handler!.</dd>
-<dt>04 May 2006</dt>
-<dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
-Double</a>. Added <a href="http://jquery.com/">jQuery</a> for Ajax support. Split 'example' source into a seperate file and load it via Ajax. Added Scheme Ajax function 'ajax-get'. Added a simple <a href="http://lambda-the-ultimate.org/node/841">termite-style</a> concurrency library. <a href="http://www.bluishcoder.co.nz/2006/05/lightweight-threads-in-browser.html">More details here</a>.</dd>
-<dt>03 May 2006</dt>
-<dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
-Double</a>. Added Firefox compatibility and set-timeout!. For more
-details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">my weblog entry</a>.</dd>
-<dt>23 July - 8 August, 2003</dt>
-<dd>Original by <a href=
-"javascript:m('alex','alexgraf.com')">Alex Yakovlev</a> from <a
-href="http://alex.ability.ru/scheme.html">http://alex.ability.ru/scheme.html</a>.</dd>
-</dl>
-</td>
-</tr>
-</table>
-</td>
-<td valign="top">
+    <h1>jsScheme - Scheme in JavaScript</h1>
+    <form name="f">
+      <table border="0" cellspacing="0">
+	<tr>
+	  <td valign="top">
+	    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+	      <tr>
+		<td rowspan="1" colspan="3">
+		  <div id="foo">Input:</div>
+		</td>
+	      </tr>
+	      <tr>
+		<td rowspan="4" colspan="2">
+		  <textarea id="txt" cols="70" rows="10" onkeydown="key1(this)"
+			    onkeyup="key2(this)">
+		</textarea></td>
+		<td><input id="evalButton" type="button" class="button" value="eval"></td>
+	      </tr>
+	      <tr>
+		<td><input id="clearInputButton" type="button" class="button" value="clear input"></td>
+	      </tr>
+	      <tr>
+		<td><input id="userCodeButton" type="button" class="button" value="user code"></td>
+	      </tr>
+	      <tr>
+		<td><input id="clearLogButton" type="button" class="button" value="clear log"></td>
+	      </tr>
+	      <tr>
+		<td width="5%">
+		  <div>Result:</div>
+		</td>
+		<td colspan="2" align="left">
+		  <div id="time">&nbsp;</div>
+		  <!-- p>Click on '(' to change horizontal/vertical flow, on cell to edit it</p --></td>
+	      </tr>
+	      <tr>
+		<td colspan="3">
+		  <table border="0" cellspacing="1" cellpadding="5">
+		    <tr>
+		      <td id="out">&nbsp;</td>
+		    </tr>
+		  </table>
+		</td>
+	      </tr>
+	      <tr>
+		<td>
+		  <div>Log:</div>
+		</td>
+		<td align="center" colspan="2">
+		  <p style="display:none"><input type="checkbox" id="echoInp" checked><label for=
+											     "echoInp">log input</label> &nbsp; <input type="checkbox" id=
+																       "echoRes" checked><label for="echoRes">log results</label> &nbsp;
+		    <input type="checkbox" id="jit"><label for=
+							   "jit">Just-in-time compilation</label></p>
+		</td>
+	      </tr>
+	      <tr>
+		<td colspan="3" valign="top">
+		  <textarea id="log" cols="90" rows="8">
+		  </textarea>
+		  <iframe id="hf" style="display:none"></iframe>
+		  <h3>jsScheme License:</h3>
+		  <ul>
+		    <li>Copyright (c) 2003 by Alex Yakovlev. All rights reserved.</li>
+		    <li>Can be freely redisributed under <a href=
+							    "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GPL, version 2</a> terms.</li>
+		  </ul>
+		  <a name="changelog">
+		    <h3>jsScheme Changelog:</h3>
+		    <dl>
+		      <dt>10 December 2019</dt>
+		      <dd>Changes by <a href="mailto:tomelam@gmail.com">Tom Elam</a>.
+			Emptied the page of distractions to focus attention on the input and log.
+			Added syntax and utilities written by
+			<a href="mailto:cy@ngs.ru">Alexander Sukhoverkhov</a>: 
+			syntax: <code>with-handlers</code> and <code>get-input</code>; utilities:
+			<code>first</code>, <code>second</code>, <code>third</code>, <code>rest</code>,
+			<code>nth</code>, and <code>displayln</code>.</dd>
+		      <dt>07 December 2019</dt>
+		      <dd>Changes by <a href="mailto:cy@ngs.ru">Alexander Sukhoverkhov</a>. Added shift, reset, and remove-handler!.</dd>
+		      <dt>04 May 2006</dt>
+		      <dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
+			  Double</a>. Added <a href="http://jquery.com/">jQuery</a> for Ajax support. Split 'example' source into a seperate file and load it via Ajax. Added Scheme Ajax function 'ajax-get'. Added a simple <a href="http://lambda-the-ultimate.org/node/841">termite-style</a> concurrency library. <a href="http://www.bluishcoder.co.nz/2006/05/lightweight-threads-in-browser.html">More details here</a>.</dd>
+		      <dt>03 May 2006</dt>
+		      <dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
+			  Double</a>. Added Firefox compatibility and set-timeout!. For more
+			details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">my weblog entry</a>.</dd>
+		      <dt>23 July - 8 August, 2003</dt>
+		      <dd>Original by <a href=
+					 "javascript:m('alex','alexgraf.com')">Alex Yakovlev</a> from <a
+													href="http://alex.ability.ru/scheme.html">http://alex.ability.ru/scheme.html</a>.</dd>
+		    </dl>
+		</td>
+	      </tr>
+	    </table>
+	  </td>
+	  <td valign="top">
 
-<h3 style="display:none">Symbols:</h3>
-<ul style="display:none">
-<li><a href="javascript:ShowEnv=TopEnv;showSymbols();">work
-environment</a></li>
-<li><a href=
-"javascript:ShowEnv=TopEnv.parentEnv;showSymbols();">core
-environment</a></li>
-</ul>
-<table style="display:none" border="0" id="symbols" cellspacing="1" cellpadding="2">
-<tbody>
-</tbody>
-</table>
-</td>
-</tr>
-</table>
-</form>
+	    <h3 style="display:none">Symbols:</h3>
+	    <ul style="display:none">
+	      <li><a href="javascript:ShowEnv=TopEnv;showSymbols();">work
+		  environment</a></li>
+	      <li><a href=
+		     "javascript:ShowEnv=TopEnv.parentEnv;showSymbols();">core
+		  environment</a></li>
+	    </ul>
+	    <table style="display:none" border="0" id="symbols" cellspacing="1" cellpadding="2">
+	      <tbody>
+	      </tbody>
+	    </table>
+	  </td>
+	</tr>
+      </table>
+    </form>
 
 <!-- Scheme interpreter -->
 <script type="text/javascript">
@@ -2611,16 +2618,6 @@ function showSymbols() {
       ex))
 </xmp>
 <xmp id='util' style="display:none">
-(define (id-element id)
-  (js-eval (string-append "document.getElementById('" id "')")))
-(define (get-attribute element attribute)
-  (js-invoke element "getAttribute" attribute))
-(define (set-attribute element attribute value)
-  (js-invoke element "getAttribute" attribute value))
-(define (get-attr selector attribute)
-  (js-invoke (js-eval selector) "getAttribute" attribute))
-(define (set-attr selector attribute value)
-  (js-invoke (js-eval selector) "setAttribute" attribute value))
 (define first car)
 (define second cadr)
 (define third caddr)
@@ -2652,9 +2649,9 @@ function showSymbols() {
   (list
    (list 'click-handler
          (lambda (id)
-           (set-handler! (id-element id) "onclick" 'on-click-handler))
+           (set-handler! ($ id "get" 0) "onclick" 'on-click-handler))
          (lambda (id)
-           (remove-handler! (id-element id)  "onclick")))
+           (remove-handler! ($ id "get" 0)  "onclick")))
    (list 'timeout-handler
          (lambda (timeout)
            (set-timeout! 'on-timeout-handler timeout))
@@ -2669,6 +2666,40 @@ function showSymbols() {
   (syntax-rules ()
     ((get-input)
      (shift c (set! input-listener-cont c)))))
+
+;;;; HTML
+
+(define (get-elem-attr element attribute)
+  (js-invoke element "getAttribute" attribute))
+
+(define (set-elem-attr element attribute value)
+  (js-invoke element "getAttribute" attribute value))
+
+(define (get-attr selector attribute)
+  (js-invoke (js-eval selector) "getAttribute" attribute))
+
+(define (set-attr selector attribute value)
+  (js-invoke (js-eval selector) "setAttribute" attribute value))
+
+;;;; jQuery
+
+;; Helper function
+(define (make-js-string arg)
+  (string-append "'" arg "'"))
+
+(define-syntax $
+  (syntax-rules ()
+    (($ selector)
+     (js-eval (string-append "$(" (make-js-string selector) ")")))
+    (($ selector method)
+     (js-invoke
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method))
+    (($ selector method method-arg)
+     (js-invoke
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method method-arg))))
+
+(define ($wrap element)
+  (js-call (js-eval "$") element))
 </xmp>
 </body>
 </html>
