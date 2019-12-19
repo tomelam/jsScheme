@@ -12,6 +12,31 @@ That version forms the initial commit to this Git repository.
 Archive.com also has
 <a href="http://web.archive.org/web/*/http://alex.ability.ru/scheme.html">captures of Alex Yakovlev's earlier, original version of jsScheme</a>,
 although those captures might not be working.</p>
+<p><code>jsScheme</code> runs inside <code>this web page</code>.
+Possibly jsScheme be divided into four parts:</p>
+<ol>
+<li>The <em>Core Part</em> containing just JavaScript code, having no dependencies upon any HTML,
+that maintains the Scheme environment and evaluates Scheme expressions and
+outputs Scheme results;</li>
+<li>the <em>Experimenter's Part</em> containing just the user input <code>&lt;textarea&gt;</code>,
+the Result cell, and JavaScript code to connect it to the <em>Core Part</em>;</li>
+<li>the <em>Implementer's Part</em> containing part containing the Log <code>&lt;textarea&gt;</code>,
+the Symbols table, and JavaScript code to connect it to the <em>Experimenter's Part</em>;
+and</li>
+<li>the <em>Interactive Introduction Page</em> containing a text introduction to jsScheme
+and links to background information and JavaScript code to connect it to the
+<em>Implementer's Part</em>.</li>
+</ol>
+<p>The <em>Core Part</em> will utilities for jQuery and HTML, and Alexander Sukhoverkhov's
+<code>shift</code>, <code>reset</code>, <code>remove-handler!</code>, <code>with-handlers</code>,
+and <code>get-input</code>.
+The <em>Interactive Introduction Page</em> will contain links to important and
+useful background material:</p>
+<ol>
+<li><a href="background.html">background.html</a></li>
+<li><a href="quickref.html">quickref.html</a></li>
+<li><a href="https://github.com/tomelam/sequential_web_app_demo">A Sequential Web-Application Demo</a></li>
+</ol>
 <h2>Features</h2>
 <ol>
 <li>Proper tail-recursion.</li>
