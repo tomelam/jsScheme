@@ -35,8 +35,8 @@ and ```get-input```.
 The *Interactive Introduction Page* will contain links to important and
 useful background material:
 
-1. [background.html](background.html)
-2. [quickref.html](quickref.html)
+1. [background.html](background.md)
+2. [quickref.html](quickref.md)
 3. [A Sequential Web-Application Demo](https://github.com/tomelam/sequential_web_app_demo)
 
 ## Features
