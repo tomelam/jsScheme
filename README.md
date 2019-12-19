@@ -102,7 +102,7 @@ terms.
 
 6. [PLT Scheme](http://www.plt-scheme.org/).
 
-7. Alex's old Lisp interpreter in C (source unknown).
+7. Alex Yakovlev's old Lisp interpreter in C (source unknown).
 
 ## Other Implementations in JavaScript
 

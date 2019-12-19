@@ -86,5 +86,67 @@ procedure ```vector-ref```:
 
 ## Manipulating the DOM
 
-jsScheme uses jsQuery v3.4.1. ```js-eval``` and ```js-invoke``` can be used
-to access it.
+jsScheme uses jsQuery v3.4.1. The ```js-eval``` and ```js-invoke``` primititves can be
+used to access it. Fuctions are being developed to facilitate the use of these
+primitives:
+
+* `$`
+
+	Evaluates a jQuery call in the context of the JavaScript environment and returns the resulting jQuery-wrapped collection of elements. There are three call signatures:
+
+	* Select a collection of elements or create an HTML element and return a jQuery-wrapped collection of elements, given, respectively, a jQuery selector or content parameter:
+
+		```($ "#symbols") => #obj<function(e,t){return new k.fn.init(e,t)}>```
+
+		```($ "<div></div>") => #obj<function(e,t){return new k.fn.init(e,t)}>```
+
+	* Invoke a method on a jQuery collection of elements and return a jQuery-wrapped collection of elements:
+
+		```($ "#symbols" "get") => #obj<function(e,t){return new k.fn.init(e,t)}>```
+
+	* Invoke a method on a jQuery collection of elements and return jQuery's result:
+
+		```($ "#symbols" "get" 0) => #obj<HTMLTableElement>```
+
+* `$wrap`
+
+	[Untested.] Give a raw HTML object a jQuery wrapping:
+
+		($wrap ($ "#symbols" "get" 0)) => #obj<function(e,t){return new k.fn.init(e,t)}>
+
+
+* `$unwrap`
+
+	[Untested.] Get a raw HTML object from inside a jQuery wrapping:
+
+		($unwrap ($ "#symbols))
+
+* `get-el-attr`
+
+	Returns an attribute, given the raw HTML object and the name of the attribute:
+
+		(get-el-attr ($ "#symbols" "get" 0) "id") => "symbols"
+
+* `set-el-attr`
+
+	Sets an attribute of an HTML element, given the raw HTML object and the attribute:
+
+		(set-el-attr ($ "#symbols" "get" 0) "id" "symbols2") => #null
+
+* ```get-attr```
+
+	[Not working yet.] Returns an attribute of an HTML object, given a jQuery selector for a single HTML element:
+
+		(get-attr "#symbols" "id") => "symbols"
+
+* ```set-attr```
+
+	[Not working yet.] Sets an attribute of an HTML object, given a jQuery selectro for a single HTML element and a value:
+
+		(set-attr "#symbols" "id" "symbols2") => ?
+
+* ```add-style```
+
+	[Not finished yet.] Add a CSS style to the page:
+
+		(add-style ".button { background-color:rgb(80,200,80); }") => ?

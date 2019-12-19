@@ -116,7 +116,7 @@
 		      <dt>03 May 2006</dt>
 		      <dd>Changes by <a href="http://www.bluishcoder.co.nz">Chris
 			  Double</a>. Added Firefox compatibility and set-timeout!. For more
-			details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">my weblog entry</a>.</dd>
+			details see <a href="http://www.bluishcoder.co.nz/2006/05/scheme-implementation-in-javascript.html">his weblog entry</a>.</dd>
 		      <dt>23 July - 8 August, 2003</dt>
 		      <dd>Original by <a href=
 					 "javascript:m('alex','alexgraf.com')">Alex Yakovlev</a> from <a
@@ -2669,11 +2669,11 @@ function showSymbols() {
 
 ;;;; HTML
 
-(define (get-elem-attr element attribute)
+(define (get-el-attr element attribute)
   (js-invoke element "getAttribute" attribute))
 
-(define (set-elem-attr element attribute value)
-  (js-invoke element "getAttribute" attribute value))
+(define (set-el-attr element attribute value)
+  (js-invoke element "setAttribute" attribute value))
 
 (define (get-attr selector attribute)
   (js-invoke (js-eval selector) "getAttribute" attribute))
@@ -2701,8 +2701,18 @@ function showSymbols() {
 (define ($wrap element)
   (js-call (js-eval "$") element))
 
+(define ($unwrap $element)
+  (js-invoke $element "get" 0)
+
 (define (add-el query selector relative-position html)
   (js-invoke ($ query selector) relative-position html))
+
+;; Example style parameter: "'.button { background-color:rgb(80,200,80); }'"
+(define (add-style style)
+  (set-el-attr
+   (js-invoke
+    (js-invoke (add-el "script" "first" "after" "<style></style>") "next") "get" 0)
+   "type" "text/css"))
 </xmp>
 </body>
 </html>

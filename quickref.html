@@ -79,5 +79,69 @@ procedure <code>vector-ref</code>:</li>
 		(js-invoke div &quot;getAttribute&quot; &quot;id&quot;) =&gt; &quot;time&quot;
 </code></pre>
 <h2>Manipulating the DOM</h2>
-<p>jsScheme uses jsQuery v3.4.1. <code>js-eval</code> and <code>js-invoke</code> can be used
-to access it.</p>
+<p>jsScheme uses jsQuery v3.4.1. The <code>js-eval</code> and <code>js-invoke</code> primititves can be
+used to access it. Fuctions are being developed to facilitate the use of these
+primitives:</p>
+<ul>
+<li>
+<p><code>$</code></p>
+<p>Evaluates a jQuery call in the context of the JavaScript environment and returns the resulting jQuery-wrapped collection of elements. There are three call signatures:</p>
+<ul>
+<li>
+<p>Select a collection of elements or create an HTML element and return a jQuery-wrapped collection of elements, given, respectively, a jQuery selector or content parameter:</p>
+<p><code>($ &quot;#symbols&quot;) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;</code></p>
+<p><code>($ &quot;&lt;div&gt;&lt;/div&gt;&quot;) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;</code></p>
+</li>
+<li>
+<p>Invoke a method on a jQuery collection of elements and return a jQuery-wrapped collection of elements:</p>
+<p><code>($ &quot;#symbols&quot; &quot;get&quot;) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;</code></p>
+</li>
+<li>
+<p>Invoke a method on a jQuery collection of elements and return jQuery's result:</p>
+<p><code>($ &quot;#symbols&quot; &quot;get&quot; 0) =&gt; #obj&lt;HTMLTableElement&gt;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>$wrap</code></p>
+<p>[Untested.] Give a raw HTML object a jQuery wrapping:</p>
+<pre><code>  ($wrap ($ &quot;#symbols&quot; &quot;get&quot; 0)) =&gt; #obj&lt;function(e,t){return new k.fn.init(e,t)}&gt;
+</code></pre>
+</li>
+<li>
+<p><code>$unwrap</code></p>
+<p>[Untested.] Get a raw HTML object from inside a jQuery wrapping:</p>
+<pre><code>  ($unwrap ($ &quot;#symbols))
+</code></pre>
+</li>
+<li>
+<p><code>get-el-attr</code></p>
+<p>Returns an attribute, given the raw HTML object and the name of the attribute:</p>
+<pre><code>  (get-el-attr ($ &quot;#symbols&quot; &quot;get&quot; 0) &quot;id&quot;) =&gt; &quot;symbols&quot;
+</code></pre>
+</li>
+<li>
+<p><code>set-el-attr</code></p>
+<p>Sets an attribute of an HTML element, given the raw HTML object and the attribute:</p>
+<pre><code>  (set-el-attr ($ &quot;#symbols&quot; &quot;get&quot; 0) &quot;id&quot; &quot;symbols2&quot;) =&gt; #null
+</code></pre>
+</li>
+<li>
+<p><code>get-attr</code></p>
+<p>[Not working yet.] Returns an attribute of an HTML object, given a jQuery selector for a single HTML element:</p>
+<pre><code>  (get-attr &quot;#symbols&quot; &quot;id&quot;) =&gt; &quot;symbols&quot;
+</code></pre>
+</li>
+<li>
+<p><code>set-attr</code></p>
+<p>[Not working yet.] Sets an attribute of an HTML object, given a jQuery selectro for a single HTML element and a value:</p>
+<pre><code>  (set-attr &quot;#symbols&quot; &quot;id&quot; &quot;symbols2&quot;) =&gt; ?
+</code></pre>
+</li>
+<li>
+<p><code>add-style</code></p>
+<p>[Not finished yet.] Add a CSS style to the page:</p>
+<pre><code>  (add-style &quot;.button { background-color:rgb(80,200,80); }&quot;) =&gt; ?
+</code></pre>
+</li>
+</ul>

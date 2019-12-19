@@ -128,7 +128,8 @@ is needed to resume the computation. Programming is therefore safer, easier and 
 
 1. [The Racket website's bibliography](https://docs.racket-lang.org/reference/doc-bibliography.html)
 
-	Seminal papers in Scheme develpment.
+	Seminal papers in Scheme develpment, especially papers related to continuations
+and macros.
 
 1. [Chrisitan Queinnec's index of PDF papers](https://pages.lip6.fr/Christian.Queinnec/PDF/)
 
@@ -138,16 +139,273 @@ is needed to resume the computation. Programming is therefore safer, easier and 
 
 	About 30-40 research papers related to Scheme and continuations, as PDFs.
 
-## Software
+1. [Bibliography of Scheme-related Research](https://github.com/scheme-live/bibliography)
+
+	Github repository.
+
+	"This online bibliography collects together links to technical papers and theses related to the Scheme language, including both classic papers and recent research. This site was maintained by Jim Bender." The website referred to was [library.readscheme.org](http://library.readscheme.org/), which .
+
+1. [Writing Hygienic Macros in Scheme with Syntax-Case](https://cs.indiana.edu/~dyb/pubs/tr356.pdf)
+
+	Dybvig 1992.
+
+	"This article describes a hygienic macro system for Scheme that is similar to the one documented in an appendix to the 'Revised4 Report on the Algorithmic Language Scheme' [2], with several important differences. ...
+
+	"The macro system consists of a set of defining forms, a set of forms for taking apart and putting together syntax, and a set of primitives for manipulating and comparing identifiers. ... Macro transformers take syntax objects as input and return (expanded) syntax objects as output. ... Implementation-dependent information may be contained within a syntax object; for example, the position of the expression in the original source code may be included for debugging purposes.
+
+	"... Although this is not intended to serve as a complete implementors' guide, a theory of operation is given to help macro writers understand the expansion process (Section 4).
+
+	"This article is intended to instruct potential macro-system users how to use the system; there is no attempt at justification or comparison with other systems. A more formal treatment of this macro system and its implementation, along with background information on this and other macro systems is given in [4].
+
+	"A complete implementation of the macro system is available, and should run in any Scheme system with the provision of a few implementation-dependent 'hooks.' It can be obtained via 'anonymous ftp' from moose.cs.indiana.edu in the directory _pub/scheme/syntax-case_."
+
+	See also [Community-Scheme-Wiki's page on syntax-case](http://community.schemewiki.org/cgi-bin/scheme.cgi?syntax-case);
+[section 3.1](https://www.scheme.com/tspl3/further.html#./further:h1) and
+[chapter 8](https://www.scheme.com/tspl3/syntax.html#./syntax:h0) of _The Scheme Scheme Programming Language_;
+[_Chez Scheme User's Guide_, Chapter 9](https://www.scheme.com/csug6/syntax.html#g2138); and [Wikipedia article 'Scheme (programming language)', section 2.2.4, 'Hygienic macros'](https://en.wikipedia.org/wiki/Scheme_\(programming_language\)#Hygienic_macros).
+Chez Scheme has a [portable implementation of the syntax-case macro system](https://github.com/cisco/ChezScheme/blob/master/s/syntax.ss).
+
+	The Wikipedia article provides a simple but key insight to the implementation of define-syntax: "Invocations of macros and procedures bear a close resemblance--both are s-expressions--but they are treated differently. When the compiler encounters an s-expression in the program, it first checks to see if the symbol is defined as a syntactic keyword within the current lexical scope. ..."
+
+1. [Writing Hygienic Macros in Scheme with Syntax-Case](ftp://ftp.maths.tcd.ie/pub/bosullvn/wreavoc/wreavoc/src/compiler/doc/syntax-case.ps.gz)
+
+	June version of the document of the same title, Dybvig 1992. Contains a preface that gives the context in which the paper was published a short time after the death of Bob Hieb, who developed most of the important concepts and algorithms for the syntax-case system.
+
+	"This report is intended not to justify the macro system, but to help potential users learn how to write macros using it. A companion report, "Syntactic Abstraction in Scheme" [4], which was mostly written before Bob's death, does attempt to justify the macro system and to place it within the context of other work. The companion report also contains more detail on the algorithms used by our implementation of the macro system.
+
+	"A complete implementation of the macro system is available, and should run in any Scheme system with the provision of a few implementation-dependent "hooks." It can be obtained via "anonymous ftp" from _iuvax.cs.indiana.edu_ in the directory _pub/scheme/syntax-case_. ..."
+
+1. [Syntactic Abstraction in Scheme](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/iucstr355.ps.gz)
+
+	Hieb, Dybvig, Bruggeman 1992.
+
+	"The remainder of this paper is structured as follows. Section 2 discusses related work. Section 3 describes the interface to our macro system and examples of its use. ..."
+
+	A very clear explanation of the motivation for syntax-case and syntax-rules and how to implement and use them.
+
+1. [Syntactic Abstraction: The syntax-case expander](https://www.cs.indiana.edu/~dyb/pubs/bc-syntax-case.pdf)
+
+	Dybvig 2007.
+
+1. [CMU Scheme Repository's bibliogrpahies](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/bib/)
+
+	* compiler.txt -   Ozan Yigit's bibliography (ascii) of work on compilation
+		techniques in Scheme. 
+	* funcprog.tar -   Tony Davie's bibliography of functional programming
+		in refer format. Updated 25-NOV-93.
+		(tamdhu.dcs.st-andrews.ac.uk:/pub/staple/pubs.txt)
+	* sbib.tar -       Ozan Yigit's definitive Scheme bibliography in
+		bib, BibTeX, ASCII, and postscript form. (7-AUG-92)
+
+1. [CMU Scheme Repository's macro/ index](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/macros/0.html)
+
+	Macros bibliographies. Contains two or three implementations of the R4RS macro proposal and proposals and implementations for macros based on syntax-case.
+
+1. [Scheme-related tech reports and papers](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/txt/) on the CMU Scheme Repository
+
+## Books
+
+Just a few of the best books on Scheme programming:
+
+1. [The Scheme Programming Language, Third Edition](https://www.scheme.com/tspl3/)
+
+1. [The Scheme Programming Language, Fourth Edition](https://www.scheme.com/tspl4/)
+
+1. [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sites/default/files/sicp/index.html)
+
+	A classic, often said to be the best programming textbook ever. The examples and
+exercises are in Scheme. Often referred to simply as _SICP_. There is a series of video lectures for the book [here](https://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/).
+
+1. [How To Design Programs](https://htdp.org/)
+
+1. [schemers.org's list](https://schemers.org/Documents/)
+
+## Manuals
+
+1. [Community-Scheme-Wiki's list of manuals](http://community.schemewiki.org/?category-manuals)
+
+## Scheme Implementations and Scheme Compilers
+
+Especially for a JavaScript run time environment.
 
 1. [jsScheme](https://github.com/tomelam/jsScheme)
 
-1. [Sequential Web-Application Demo](https://github.com/tomelam/jsScheme)
-
 1. [BiwaScheme](https://www.biwascheme.org/)
+
+1. [CPSCM Scheme](http://www.omnigia.com/scheme/cpscm/home/)
+
+	"CPSCM is a Scheme compiler based on CPS conversion. It outputs code for two back-ends: Javascript and Common Lisp (as well as a "simple Scheme" back-end). There is an online CPSCM compiler that lets you play with the compiler right from your browser without downloading anything. Also see the bubble sort example which combines compiled Scheme and DHTML."
+
+	CPSCM's installation instructions didn't work for me and it appears not to have
+been recently maintained (not in the last 12 years).
+
+1. [Community-Scheme-Wiki's list](http://community.schemewiki.org/?scheme-faq-standards#implementations)
+
+1. [Scheme Implementations Listed by the Standards They Meet](https://misc.lassi.io/2019/schemes-by-rnrs.text)
+
+1. [Other Implementations in JavaScript]()
+
+	Early, mini-implementations [mentioned by Alex Yakovlev](http://web.archive.org/web/20080119020130/http://alex.ability.ru/scheme.html).
+
+## Online Scheme Communities
+
+1. [schemers.org](https://schemers.org/)
+
+	* FAQ
+	* textbooks
+	* videos
+	* blogs
+	* standards
+	* tutorials
+	* bibliography
+	* other documents
+	* education
+
+1. [Community-Scheme-Wiki](http://community.schemewiki.org/)
+
+1. [Scheme Digest mailing list](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/mail/)
+
+	Only old archives are here.
+
+1. [Scheme news](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/news/)
+
+	Only old archives are here.
+
+1. [The comp.lang.scheme newsgroup](https://groups.google.com/forum/#!forum/comp.lang.scheme)
+
+1. [#scheme channel on IRC](http://community.schemewiki.org/?%23scheme-on-freenode)
+
+1. [Scheme Chat Rooms on IRC](https://netsplit.de/channels/?chat=scheme)
+
+## Software
 
 1. [The final program in the tutorial 'More: Systems Programming with Racket'](https://docs.racket-lang.org/more/step9.txt)
 
 	A secure, multi-threaed, servlet-extensible, continuation-based web server in 153 lines of Scheme, described in the paper listed above, 'More: Systems Programming with Racket'. 
 
+1. [Sequential Web-Application Demo](https://github.com/tomelam/jsScheme)
+
+	A short gist demonstrating sequential programming in the web browser. Explanation of the motivation for the demo.
+
 1. [Software for BiwaScheme](https://github.com/search?q=biwascheme)
+
+1. Chez Scheme's [Portable implementation of the syntax-case macro system](https://github.com/cisco/ChezScheme/blob/master/s/syntax.ss)
+
+1. [Proposals and implementations for macros in Scheme](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/macros/) from the CMU Scheme Repository
+
+1. [The Scheme Cookbook](http://community.schemewiki.org/?The-Scheme-Cookbook)
+
+	"The Schematics Scheme Cookbook is a collaborative effort to produce time-saving documentation and recipes for using Scheme for common tasks in practical contexts, particularly in commercial environments.
+
+	"The Cookbook aims to focus on portable Scheme solutions where possible, relying particularly on SRFIs to achieve this. Where a portable solution is impractical, the Cookbook currently focuses on the use of PLT-Scheme. The hope is that the Cookbook will be able to support other implementations in future."
+
+	Download the book from [Github](https://github.com/schemedoc/cookbook) or from (https://misc.lassi.io/2019/schemecookbook.org.tgz).
+
+1. The ['Where can I find scheme libraries?' section](http://community.schemewiki.org/) of Community-Scheme-Wiki's FAQ
+
+1. [The Indiana University Scheme repository](ftp://ftp.cs.indiana.edu/pub/scheme-repository)
+
+	Very slow to access. Mostly old. The README in the code subdirectory says:
+
+	"This area of the repository is a collection of Scheme code meant for
+   benchmarking, library/support, research, education, and fun.
+   
+	* Scheme code for language implementation (./lang/*).
+	* Scheme library code (SLIB) (./lib/*).
+	* Scheme code for pattern matching (./match/*)
+	* Math-oriented Scheme code (./num/*).
+	* Scheme code to implement object-oriented programming systems (./oop/*).
+	* Scheme code for string handling (./string/*).
+	* Scheme code to implement and manipulate many types of data
+	  structures (./struct/*).
+	* Scheme code for operating systems interfacing (./sys/*).
+	* Miscellaneous Scheme code (./misc/*)."
+
+	[Code from _Scheme and the Art of Programming_](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/lit/sap/)
+
+1. [The 'category-software' section of the Indiana University Scheme repository](http://community.schemewiki.org/?category-software)
+
+	The portable software includes:
+
+	* SLIB is a portable scheme library. It runs on most schemes.
+	* SSAX (from the website) This project offers tools to inter-convert between an angular-bracket and a more efficient S-expression-based notations for markup documents, and to manipulate and query xML data in Scheme.
+	* SDOM This is an implementation of the W3C DOM recommendation (Level 3) in scheme.
+	* Spells is a portable library, running on several Schemes.
+	* object-dump is a library for dumping (serializing) and retrieving objects to/from ports.
+	* Sparks is an object database for Scheme, using prometheus as object system.
+	* Conjure is a build tool in the spirit of the well known Make program
+	* SchemeDS An executable implementation of the Denotational Semantics for Scheme
+	* simpler-macros A portable macro and module system for Scheme in Scheme
+	* common-scheme A system that allows you to write portable code that will run on many implementations.
+	* mod_lisp An Apache module that uses an extremely simple protocol over a socket to communicate with your separately running process. There is a implementation of the bare-bones protocol for R5RS Scheme.
+	* magic Magic is a simple web application framework.
+	* Schelog is an embedding of Prolog-style logic programming in Scheme.
+	* text-template a text template library for Scheme
+	* Askemos Use Scheme and SQLite in byzantine replication with Erlang style communication.
+
+	There is also software for specific dialects of Scheme, for object oriented systems, and for compiler construction.
+
+1. [The 'sicp-solutions' section of the Indiana University Scheme repository](http://community.schemewiki.org/?sicp-solutions)
+
+	Just the solutions to the problems given at the ends of the chapters in the classic textbook _The Structure and Interpretation of Computer Programs_.
+
+1. [The 'category-code' section of the Indiana University Scheme repository](http://community.schemewiki.org/?category-code)
+
+	Code snippets in Scheme.
+
+1. [CMU Scheme Repository](http://www-cgi.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/)
+
+	Part of the CMU Artificial Intelligence Repository.
+
+	* bookcode/  Machine readable parts of various Scheme booka:
+		aibook (_Programming for Artificial Intelligence:
+		Methods, Tools and Applications_),
+		eopl (_Essentials of Programming Languages_), queinnec
+		(_Les Langages Lisp_), sap (_Scheme and the Art of Programming_),
+		sicp (_Structure and the Interpretation of Computer Programs_),
+		ssics (_Simply Scheme_)
+	* code/      Scheme code for benchmarking, research, 
+		education, and fun
+	* doc/       Documentation, including standards and proposals
+	* edu/       Educational Materials for Teaching/Learning 
+		Scheme
+	* faq/       Scheme FAQ: Frequently Asked Questions (FAQ) 
+		posting for comp.lang.scheme newsgroup
+	* gui/       Graphical User Interfaces (GUI) for Scheme and 
+		other graphics code.
+	* impl/      Free/Shareware Scheme implementations
+	* mail/      Archives of the Scheme mailing list.
+	* oop/       OOP: Code related to object-oriented programming.
+	* scheme/    Archives for the comp.lang.scheme newsgroup
+	* txt/       Online Scheme-related tech reports and papers.
+	* util/      Utilities for programming in Scheme.
+
+1. [CMU Scheme Repository code](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/code/)
+
+	SLIB (the Standard Scheme Library), the code from Sigplan on
+	building abstract iterators using continuations, an interpreter for
+	the language LOOP, a SKI compiler, an AVL tree implementation (without
+	delete), and implementation of gensym, quicksort, read-line, various
+	useful string functions, and a library of Common Lisp functions for Scheme.
+
+1. [Scheme documentation](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/),
+including standards and proposals
+
+	* bib/       Bibliographies related to Scheme.
+	* intro/     Introductions, tutorials, and quick reference 
+        	guides for Scheme.
+	* macros/    Proposals and implementations for macros in 
+        	Scheme.
+	* notes/     Summaries and interesting notes about 
+        	Scheme-related stuff.
+	* standard/  Scheme standards documents and test suites
+
+1. [lassi.io's miscellaneous collection](https://lassi.io/2019/)
+
+1. [The 'ninety-nine-scheme-problems' section of the Indiana University Scheme repository](http://community.schemewiki.org/?ninety-nine-scheme-problems)
+
+	Such problems as "Insert an element at a given position into a list" and "Calculate Euler's totient function phi(m)".
+
+1. [Scheme code for _Scheme and the Art of Programming_](https://github.com/sl424/scheme-programming)
+
+1. [Solutions of problems in _Scheme and the Art of Programming_](https://github.com/AmeerFazal/Scheme-and-The-Art-of-Programming)
