@@ -174,7 +174,9 @@ Chez Scheme has a [portable implementation of the syntax-case macro system](http
 
 	The Wikipedia article provides a simple but key insight to the implementation of define-syntax: "Invocations of macros and procedures bear a close resemblance--both are s-expressions--but they are treated differently. When the compiler encounters an s-expression in the program, it first checks to see if the symbol is defined as a syntactic keyword within the current lexical scope. ..."
 
-1. [Writing Hygienic Macros in Scheme with Syntax-Case (GNU zipped Postscript file on FTP server)](ftp://ftp.maths.tcd.ie/pub/bosullvn/wreavoc/wreavoc/src/compiler/doc/syntax-case.ps.gz)
+1. Writing Hygienic Macros in Scheme with Syntax-Case (GNU zipped Postscript file on FTP server)
+
+	ftp://ftp.maths.tcd.ie/pub/bosullvn/wreavoc/wreavoc/src/compiler/doc/syntax-case.ps.gz
 
 	June version of the document of the same title, mentioned above. Contains a preface that gives the context in which the paper was published a short time after the death of Bob Hieb, who developed most of the important concepts and algorithms for the syntax-case system.
 
@@ -182,7 +184,9 @@ Chez Scheme has a [portable implementation of the syntax-case macro system](http
 
 	"A complete implementation of the macro system is available, and should run in any Scheme system with the provision of a few implementation-dependent "hooks." It can be obtained via "anonymous ftp" from _iuvax.cs.indiana.edu_ in the directory _pub/scheme/syntax-case_. ..." [Note, however, that _iuvax.cs.indiana.edu_ might no longer exist.]
 
-1. [Syntactic Abstraction in Scheme (GNU zipped Postscript file on FTP server)](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/iucstr355.ps.gz)
+1. Syntactic Abstraction in Scheme (GNU zipped Postscript file on FTP server)
+
+	ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/iucstr355.ps.gz
 
 	Hieb, Dybvig, Bruggeman 1992.
 
