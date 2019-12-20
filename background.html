@@ -165,6 +165,37 @@ Apparently only the first four parts were published.
 They may also be obtained frrom the [Indiana University Scheme repository in its <a href="ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/misc/">miscellaneous directory</a>.</p>
 <ol>
 <li>
+<p><a href="https://www.greghendershott.com/fear-of-macros/all.html">Fear of Macros</a></p>
+<p>&quot;A practical guide to Racket macros.&quot;</p>
+</li>
+<li>
+<p><a href="http://www.ccs.neu.edu/home/ryanc/macro-patterns/index.html">Patterns for Writing Macros</a></p>
+</li>
+<li>
+<p><a href="https://core.ac.uk/download/pdf/82816814.pdf">Debugging hygienic macros</a></p>
+<p>Culpepper, Felleisen 2009</p>
+</li>
+<li>
+<p><a href="http://okmij.org/ftp/Scheme/macros.html">Low- and high-level macro programming in Scheme</a></p>
+</li>
+<li>
+<p><a href="http://okmij.org/ftp/Scheme/CPS-Macros.ps.gz">Macros that Compose: Systematic Macro Programming</a></p>
+<p>Kiselyov 2002</p>
+</li>
+<li>
+<p><a href="https://www.cs.utah.edu/plt/scope-sets/">Binding as Sets of Scopes--Notes on a new model of macro expansion for Racket</a></p>
+</li>
+<li>
+<p><a href="http://okmij.org/ftp/Scheme/macro-symbol-p.txt">How to write symbol? with syntax-rules</a></p>
+</li>
+<li>
+<p><a href="http://www.schemeworkshop.org/2012/papers/thivierge-feeley-paper-sfp12.pdf">Efficient Compilation of Tail Calls and Continuations to JavaScript</a></p>
+<p>Thivierge, Feeley 2012</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Hygienic_macro">Hygienic macro</a> from Wikipedia</p>
+</li>
+<li>
 <p><a href="ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/">Indiana University Scheme Repository's bibliography and papers</a></p>
 <p>The README contains the bibliography.</p>
 </li>
@@ -190,6 +221,9 @@ bib, BibTeX, ASCII, and postscript form. (7-AUG-92)</li>
 <li>
 <p><a href="https://people.csail.mit.edu/jaffer/Scheme.html">Aubrey Jaffer's Scheme bibliography</a></p>
 </li>
+<li>
+<p><a href="https://www.reddit.com/r/scheme/comments/3chowf/collection_of_links_about_scheme_macros/">Collection of links about Scheme macros</a> on Reddit</p>
+</li>
 </ol>
 <h2>Books</h2>
 <p>Just a few of the best books on Scheme programming:</p>
@@ -204,6 +238,9 @@ bib, BibTeX, ASCII, and postscript form. (7-AUG-92)</li>
 <p><a href="https://mitpress.mit.edu/sites/default/files/sicp/index.html">Structure and Interpretation of Computer Programs</a></p>
 <p>A classic, often said to be the best programming textbook ever. The examples and
 exercises are in Scheme. Often referred to simply as <em>SICP</em>. There is a series of video lectures for the book <a href="https://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/">here</a>.</p>
+</li>
+<li>
+<p><a href="https://ds26gte.github.io/tyscheme/">Teach Yourself Scheme in Fixnum Days</a></p>
 </li>
 <li>
 <p><a href="https://htdp.org/">How To Design Programs</a></p>
@@ -224,9 +261,9 @@ exercises are in Scheme. Often referred to simply as <em>SICP</em>. There is a s
 </li>
 <li>
 <p><a href="https://www.biwascheme.org/">BiwaScheme</a></p>
-</li>
-<li>
-<p><a href="http://www.omnigia.com/scheme/cpscm/home/">CPSCM Scheme</a></p>
+<ol>
+<li><a href="http://www.omnigia.com/scheme/cpscm/home/">CPSCM Scheme</a></li>
+</ol>
 <p>&quot;CPSCM is a Scheme compiler based on CPS conversion. It outputs code for two back-ends: Javascript and Common Lisp (as well as a &quot;simple Scheme&quot; back-end). There is an online CPSCM compiler that lets you play with the compiler right from your browser without downloading anything. Also see the bubble sort example which combines compiled Scheme and DHTML.&quot;</p>
 <p>CPSCM's installation instructions didn't work for me and it appears not to have
 been recently maintained (not in the last 12 years).</p>
@@ -249,11 +286,25 @@ SCM includes Hobbit, the Scheme-to-C compiler originally written by Tanel Tammet
 <p>&quot;The Gambit Scheme system is a complete, portable, efficient and reliable implementation of the Scheme programming language.&quot;</p>
 </li>
 <li>
+<p><a href="http://feeley.github.io/gambit-in-the-browser/">Gambit in the browser</a></p>
+<p>A very nice looking version of Scheme running in the browser with a REPL and simple debugging. It is mentioned on <a href="https://news.ycombinator.com/item?id=8680589">ycombinator.com</a>.</p>
+</li>
+<li>
+<p><a href="http://wiki.call-cc.org/eggref/4/spock">spock</a></p>
+<p>&quot;SPOCK is a compiler and runtime system for translating most of R5RS Scheme into JavaScript. You can use it either by statically generating JavaScript files from Scheme source files or by translating s-expressions containing Scheme code on the fly. The compiler uses Henry Baker's Cheney-on-the-MTA compilation strategy.</p>
+<p>&quot;This extension is still in a very early state and is likely to contain numerous bugs. There are known problems with Internet Explorer and the system has only been tested on a few browsers. Moreover, the compilation strategy used stresses JavaScript implementations in unusual ways and the results indicate that many JavaScript engines seem to have quite serious limitations regarding static function nesting and closure performance.&quot;</p>
+</li>
+<li>
 <p>[Moritz Heidkamp's list](http://ceaude.twoticketsplease.de/js-lisps.html</p>
 <p>Moritz Heidkamp's comprehensive table of Scheme and Lisp implementations for JavaScript with checkboxes for whether they provide a compiler, an interpreter, interoperability, TCO (tail call optimization), continuations, macros, hygiene, and debugging.</p>
 </li>
 <li>
+<p><a href="http://community.schemewiki.org/?syntax-case">List of Schemes providing syntax-case</a></p>
+<p>Community-Scheme-Wiki's list.</p>
+</li>
+<li>
 <p><a href="http://community.schemewiki.org/?scheme-faq-standards#implementations">Community-Scheme-Wiki's list</a></p>
+<p>Lists several Scheme implementations for a JavaScript platform.</p>
 </li>
 <li>
 <p><a href="https://misc.lassi.io/2019/schemes-by-rnrs.text">Scheme Implementations Listed by the Standards They Meet</a></p>
@@ -285,6 +336,11 @@ SCM includes Hobbit, the Scheme-to-C compiler originally written by Tanel Tammet
 </li>
 <li>
 <p>Chez Scheme's <a href="https://github.com/cisco/ChezScheme/blob/master/s/syntax.ss">Portable implementation of the syntax-case macro system</a></p>
+<p>10,088 lines of code.</p>
+</li>
+<li>
+<p><a href="http://community.schemewiki.org/?syntax-case">Portable implementation of the syntax-case macro system</a></p>
+<p>See the <a href="https://raw.githubusercontent.com/cisco/ChezScheme/master/s/syntax.ss">portable implementation of syntax-case in Chez Scheme</a>.</p>
 </li>
 <li>
 <p><a href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/macros/">Proposals and implementations for macros in Scheme</a> from the CMU Scheme Repository</p>
@@ -410,12 +466,24 @@ Scheme-related stuff.</li>
 <li>
 <p><a href="https://github.com/AmeerFazal/Scheme-and-The-Art-of-Programming">Solutions of problems in <em>Scheme and the Art of Programming</em></a></p>
 </li>
-<li>
-<p><a href="https://raw.githubusercontent.com/cisco/ChezScheme/master/s/syntax.ss">Portable implementation of syntax-case</a></p>
-</li>
 </ol>
+<h2>Conformance and Benchmark Testing</h2>
+<pre><code>* [Scheme faq](http://community.schemewiki.org/?scheme-faq-standards)
+* [Scheme r5rs conformance test suite (question on comp.lang.scheme)](https://comp.lang.scheme.narkive.com/cPDByGyC/scheme-r5rs-conformance-test-suite)
+* [r5rs_pitfalls.scm](http://sisc-scheme.org/r5rs_pitfall.scm)
+* [R5RS Pitfalls Test Results](http://sisc-scheme.org/r5rs_pitfall.php)
+* [CPSCM Scheme - R5RS conformance](http://www.omnigia.com/scheme/cpscm/conformance/)
+* [Benchmarks](https://people.csail.mit.edu/jaffer/CNS/benchmarks)
+* [r4rstest.scm](http://cvs.savannah.gnu.org/viewvc/*checkout*/scm/scm/r4rstest.scm)
+* [r7rs-wg1-infra](https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/)
+* [A stress test of the syntax-rule macro-expander](http://okmij.org/ftp/Scheme/macros.html#syntax-rule-stress-test)
+</code></pre>
 <h2>Online Scheme Communities</h2>
 <ol>
+<li>
+<p><a href="https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/R7RSHomePage.md">R7RS Scheme proposals and ballots homepage</a></p>
+<p><a href="http://r7rs.org">r7rs.org</a> redirects here.</p>
+</li>
 <li>
 <p><a href="https://schemers.org/">schemers.org</a></p>
 <ul>
@@ -437,10 +505,19 @@ Scheme-related stuff.</li>
 <p><a href="http://groups.csail.mit.edu/mac/projects/scheme/">Scheme at MIT</a></p>
 </li>
 <li>
-<p><a href="https://www.reddit.com/r/scheme/">reddit.com/r/scheme/</a></p>
+<p><a href="https://groups.google.com/forum/#!forum/comp.lang.scheme">The comp.lang.scheme newsgroup</a></p>
 </li>
 <li>
 <p><a href="http://www.scheme.dk/planet/">Planet Scheme</a></p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/scheme/">reddit.com/r/scheme/</a></p>
+</li>
+<li>
+<p><a href="http://community.schemewiki.org/?%23scheme-on-freenode">#scheme channel on IRC</a></p>
+</li>
+<li>
+<p><a href="https://netsplit.de/channels/?chat=scheme">Scheme Chat Rooms on IRC</a></p>
 </li>
 <li>
 <p><a href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/mail/">Scheme Digest mailing list</a></p>
@@ -449,14 +526,5 @@ Scheme-related stuff.</li>
 <li>
 <p><a href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/news/">Scheme news</a></p>
 <p>Only old archives are here.</p>
-</li>
-<li>
-<p><a href="https://groups.google.com/forum/#!forum/comp.lang.scheme">The comp.lang.scheme newsgroup</a></p>
-</li>
-<li>
-<p><a href="http://community.schemewiki.org/?%23scheme-on-freenode">#scheme channel on IRC</a></p>
-</li>
-<li>
-<p><a href="https://netsplit.de/channels/?chat=scheme">Scheme Chat Rooms on IRC</a></p>
 </li>
 </ol>
