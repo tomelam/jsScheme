@@ -5,6 +5,7 @@ links to resources related to jsScheme and
 [sequential web-application demo using jsScheme](https://github.com/tomelam/sequential_web_app_demo).
 Those and other resources are listed here because they provide a rich background
 on the use of languages interpretted in or compiled to JavaScript,
+```define-syntax``` and ```syntax-rules```,
 and the use of continuations or continuation-passing style in
 web applications.
 The resources are papers and running implementations.
@@ -14,6 +15,10 @@ and recorded below, in no particular order, with some of the links
 updated.
 
 ## Papers
+
+1. [R5RS](https://schemers.org/Documents/Standards/R5RS/)
+
+	The paper that introduced and defined R5RS Scheme. [R5RS as a PDF](https://schemers.org/Documents/Standards/R5RS/r5rs.pdf). [R5RS in HTML](https://schemers.org/Documents/Standards/R5RS/HTML/).
 
 1. [Oberon Script. A Lightweight Compiler and Runtime System for the Web](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-2006-50.pdf)
 
@@ -145,6 +150,8 @@ and macros.
 
 	"This online bibliography collects together links to technical papers and theses related to the Scheme language, including both classic papers and recent research. This site was maintained by Jim Bender." The website referred to was [library.readscheme.org](http://library.readscheme.org/), which .
 
+1. [Bibliography provided in the R5RS report](https://schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-14.html#%_chap_Temp_10)
+
 1. [Writing Hygienic Macros in Scheme with Syntax-Case](https://cs.indiana.edu/~dyb/pubs/tr356.pdf)
 
 	Dybvig 1992.
@@ -167,25 +174,61 @@ Chez Scheme has a [portable implementation of the syntax-case macro system](http
 
 	The Wikipedia article provides a simple but key insight to the implementation of define-syntax: "Invocations of macros and procedures bear a close resemblance--both are s-expressions--but they are treated differently. When the compiler encounters an s-expression in the program, it first checks to see if the symbol is defined as a syntactic keyword within the current lexical scope. ..."
 
-1. [Writing Hygienic Macros in Scheme with Syntax-Case](ftp://ftp.maths.tcd.ie/pub/bosullvn/wreavoc/wreavoc/src/compiler/doc/syntax-case.ps.gz)
+1. [Writing Hygienic Macros in Scheme with Syntax-Case (GNU zipped Postscript file on FTP server)](ftp://ftp.maths.tcd.ie/pub/bosullvn/wreavoc/wreavoc/src/compiler/doc/syntax-case.ps.gz)
 
-	June version of the document of the same title, Dybvig 1992. Contains a preface that gives the context in which the paper was published a short time after the death of Bob Hieb, who developed most of the important concepts and algorithms for the syntax-case system.
+	June version of the document of the same title, mentioned above. Contains a preface that gives the context in which the paper was published a short time after the death of Bob Hieb, who developed most of the important concepts and algorithms for the syntax-case system.
 
 	"This report is intended not to justify the macro system, but to help potential users learn how to write macros using it. A companion report, "Syntactic Abstraction in Scheme" [4], which was mostly written before Bob's death, does attempt to justify the macro system and to place it within the context of other work. The companion report also contains more detail on the algorithms used by our implementation of the macro system.
 
-	"A complete implementation of the macro system is available, and should run in any Scheme system with the provision of a few implementation-dependent "hooks." It can be obtained via "anonymous ftp" from _iuvax.cs.indiana.edu_ in the directory _pub/scheme/syntax-case_. ..."
+	"A complete implementation of the macro system is available, and should run in any Scheme system with the provision of a few implementation-dependent "hooks." It can be obtained via "anonymous ftp" from _iuvax.cs.indiana.edu_ in the directory _pub/scheme/syntax-case_. ..." [Note, however, that _iuvax.cs.indiana.edu_ might no longer exist.]
 
-1. [Syntactic Abstraction in Scheme](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/iucstr355.ps.gz)
+1. [Syntactic Abstraction in Scheme (GNU zipped Postscript file on FTP server)](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/iucstr355.ps.gz)
 
 	Hieb, Dybvig, Bruggeman 1992.
 
 	"The remainder of this paper is structured as follows. Section 2 discusses related work. Section 3 describes the interface to our macro system and examples of its use. ..."
 
-	A very clear explanation of the motivation for syntax-case and syntax-rules and how to implement and use them.
+	A very clear explanation of the motivation for syntax-case and syntax-rules, how to implement them, and how to use them.
 
 1. [Syntactic Abstraction: The syntax-case expander](https://www.cs.indiana.edu/~dyb/pubs/bc-syntax-case.pdf)
 
 	Dybvig 2007.
+
+1. [An introduction to macro exapansion algorithms](https://cs.indiana.edu/ftp/scheme-repository/doc/misc/macros-01.txt)
+
+The link points to the first part of a planned series of nine articles.
+Apparently only the first four parts were published.
+They may also be obtained frrom the [Indiana University Scheme repository in its [miscellaneous directory](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/misc/).
+
+1. [Fear of Macros](https://www.greghendershott.com/fear-of-macros/all.html)
+
+	"A practical guide to Racket macros."
+
+1. [Patterns for Writing Macros](http://www.ccs.neu.edu/home/ryanc/macro-patterns/index.html)
+
+1. [Debugging hygienic macros](https://core.ac.uk/download/pdf/82816814.pdf)
+
+	Culpepper, Felleisen 2009
+
+1. [Low- and high-level macro programming in Scheme](http://okmij.org/ftp/Scheme/macros.html)
+
+1. [Macros that Compose: Systematic Macro Programming](http://okmij.org/ftp/Scheme/CPS-Macros.ps.gz)
+
+	Kiselyov 2002
+
+1. [Binding as Sets of Scopes--Notes on a new model of macro expansion for Racket](https://www.cs.utah.edu/plt/scope-sets/)
+
+1. [How to write symbol? with syntax-rules](http://okmij.org/ftp/Scheme/macro-symbol-p.txt)
+
+1. [Efficient Compilation of Tail Calls and Continuations to JavaScript](http://www.schemeworkshop.org/2012/papers/thivierge-feeley-paper-sfp12.pdf)
+
+	Thivierge, Feeley 2012
+
+1. [Hygienic macro](https://en.wikipedia.org/wiki/Hygienic_macro) from Wikipedia
+
+1. [Indiana University Scheme Repository's bibliography and papers](ftp://ftp.cs.indiana.edu/pub/scheme-repository/doc/pubs/)
+
+	The README contains the bibliography.
 
 1. [CMU Scheme Repository's bibliogrpahies](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/bib/)
 
@@ -203,6 +246,10 @@ Chez Scheme has a [portable implementation of the syntax-case macro system](http
 
 1. [Scheme-related tech reports and papers](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/txt/) on the CMU Scheme Repository
 
+1. [Aubrey Jaffer's Scheme bibliography](https://people.csail.mit.edu/jaffer/Scheme.html)
+
+1. [Collection of links about Scheme macros](https://www.reddit.com/r/scheme/comments/3chowf/collection_of_links_about_scheme_macros/) on Reddit
+
 ## Books
 
 Just a few of the best books on Scheme programming:
@@ -216,6 +263,8 @@ Just a few of the best books on Scheme programming:
 	A classic, often said to be the best programming textbook ever. The examples and
 exercises are in Scheme. Often referred to simply as _SICP_. There is a series of video lectures for the book [here](https://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/).
 
+1. [Teach Yourself Scheme in Fixnum Days](https://ds26gte.github.io/tyscheme/)
+
 1. [How To Design Programs](https://htdp.org/)
 
 1. [schemers.org's list](https://schemers.org/Documents/)
@@ -224,58 +273,73 @@ exercises are in Scheme. Often referred to simply as _SICP_. There is a series o
 
 1. [Community-Scheme-Wiki's list of manuals](http://community.schemewiki.org/?category-manuals)
 
-## Scheme Implementations and Scheme Compilers
+## Scheme Implementations
 
-Especially for a JavaScript run time environment.
+Especially portable versions and versions for a JavaScript run time environment.
 
 1. [jsScheme](https://github.com/tomelam/jsScheme)
 
 1. [BiwaScheme](https://www.biwascheme.org/)
 
-1. [CPSCM Scheme](http://www.omnigia.com/scheme/cpscm/home/)
+	1. [CPSCM Scheme](http://www.omnigia.com/scheme/cpscm/home/)
 
 	"CPSCM is a Scheme compiler based on CPS conversion. It outputs code for two back-ends: Javascript and Common Lisp (as well as a "simple Scheme" back-end). There is an online CPSCM compiler that lets you play with the compiler right from your browser without downloading anything. Also see the bubble sort example which combines compiled Scheme and DHTML."
 
 	CPSCM's installation instructions didn't work for me and it appears not to have
 been recently maintained (not in the last 12 years).
 
+1. [Kali Scheme](https://github.com/tonyg/kali-scheme/wiki)
+
+	Also see [kali-scheme-revival](http://community.schemewiki.org/cgi-bin/scheme.cgi?kali-scheme-revival).
+
+	"Kali Scheme is a distributed implementation of the Scheme that permits efficient transmission of higher-order objects such as closures and continuations. The integration of distributed communication facilities within a higher-order programming language engenders a number of new abstractions and paradigms for distributed computing. Among these are user-specified load-balancing and migration policies for threads, incrementally-linked distributed computations, and parameterized client-server applications. Kali Scheme supports concurrency and communication using first-class procedures and continuations. It integrates procedures and continuations into a message-based distributed framework that allows any Scheme object (including code vectors) to be sent and received in a message."
+
+	Kali Scheme is included in this list of Scheme implementations because it has definitions of syntax-rules and define-syntax that could be added to BiwaScheme to give it R5RS macros.
+
+1. [SCM](https://people.csail.mit.edu/jaffer/SCM.html)
+
+	"SCM is a Scheme implementation conforming to Revised5 Report on the Algorithmic Language Scheme and the IEEE P1178 specification.   Scm is written in C and runs under Amiga, Atari-ST, GNU/Linux, MacOS, MS-DOS, MS-Vista, MS-Windows, OS/2, NOS/VE, Unicos, VMS, Unix and similar systems.
+SCM includes Hobbit, the Scheme-to-C compiler originally written by Tanel Tammet. Hobbit generates C files whose binaries can be dynamically or statically linked with a SCM executable. SCM includes linkable modules for sequence-comparison, arrays, records, and byte-number conversions; and modules for POSIX system calls and network-sockets, readline, ncurses, and Xlib.
+
+	"On some platforms SCM supports unexec (developed for Emacs and bash), which dumps a executable image from a running SCM. This results in very low latency (12.ms) startup for SCM.
+
+	"SCM requires the SLIB Scheme Library. Both SCM and SLIB are GNU packages."
+
+1. [Gambit](http://dynamo.iro.umontreal.ca/wiki/index.php/Main_Page)
+
+	"The Gambit Scheme system is a complete, portable, efficient and reliable implementation of the Scheme programming language."
+
+1. [Gambit in the browser](http://feeley.github.io/gambit-in-the-browser/)
+
+	A very nice looking version of Scheme running in the browser with a REPL and simple debugging. It is mentioned on [ycombinator.com](https://news.ycombinator.com/item?id=8680589).
+
+1. [spock](http://wiki.call-cc.org/eggref/4/spock)
+
+	"SPOCK is a compiler and runtime system for translating most of R5RS Scheme into JavaScript. You can use it either by statically generating JavaScript files from Scheme source files or by translating s-expressions containing Scheme code on the fly. The compiler uses Henry Baker's Cheney-on-the-MTA compilation strategy.
+
+	"This extension is still in a very early state and is likely to contain numerous bugs. There are known problems with Internet Explorer and the system has only been tested on a few browsers. Moreover, the compilation strategy used stresses JavaScript implementations in unusual ways and the results indicate that many JavaScript engines seem to have quite serious limitations regarding static function nesting and closure performance."
+
+1. [Moritz Heidkamp's list](http://ceaude.twoticketsplease.de/js-lisps.html
+
+	Moritz Heidkamp's comprehensive table of Scheme and Lisp implementations for JavaScript with checkboxes for whether they provide a compiler, an interpreter, interoperability, TCO (tail call optimization), continuations, macros, hygiene, and debugging.
+
+1. [List of Schemes providing syntax-case](http://community.schemewiki.org/?syntax-case)
+
+	Community-Scheme-Wiki's list.
+
 1. [Community-Scheme-Wiki's list](http://community.schemewiki.org/?scheme-faq-standards#implementations)
+
+	Lists several Scheme implementations for a JavaScript platform.
 
 1. [Scheme Implementations Listed by the Standards They Meet](https://misc.lassi.io/2019/schemes-by-rnrs.text)
 
-1. [Other Implementations in JavaScript]()
+1. Other Implementations in JavaScript
 
 	Early, mini-implementations [mentioned by Alex Yakovlev](http://web.archive.org/web/20080119020130/http://alex.ability.ru/scheme.html).
 
-## Online Scheme Communities
+1. [Free/Shareware Scheme Implementations](https://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/impl/0.html) in the CMU Scheme repository
 
-1. [schemers.org](https://schemers.org/)
-
-	* FAQ
-	* textbooks
-	* videos
-	* blogs
-	* standards
-	* tutorials
-	* bibliography
-	* other documents
-	* education
-
-1. [Community-Scheme-Wiki](http://community.schemewiki.org/)
-
-1. [Scheme Digest mailing list](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/mail/)
-
-	Only old archives are here.
-
-1. [Scheme news](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/news/)
-
-	Only old archives are here.
-
-1. [The comp.lang.scheme newsgroup](https://groups.google.com/forum/#!forum/comp.lang.scheme)
-
-1. [#scheme channel on IRC](http://community.schemewiki.org/?%23scheme-on-freenode)
-
-1. [Scheme Chat Rooms on IRC](https://netsplit.de/channels/?chat=scheme)
+1. ["What is a fast and reliable Scheme -> JavaScript compiler?" thread on Reddit](https://www.reddit.com/r/scheme/comments/1mjm4w/what_is_a_fast_and_reliable_scheme_javascript/)
 
 ## Software
 
@@ -289,7 +353,15 @@ been recently maintained (not in the last 12 years).
 
 1. [Software for BiwaScheme](https://github.com/search?q=biwascheme)
 
+	A search on Github.
+
 1. Chez Scheme's [Portable implementation of the syntax-case macro system](https://github.com/cisco/ChezScheme/blob/master/s/syntax.ss)
+
+	10,088 lines of code.
+
+1. [Portable implementation of the syntax-case macro system](http://community.schemewiki.org/?syntax-case)
+
+	See the [portable implementation of syntax-case in Chez Scheme](https://raw.githubusercontent.com/cisco/ChezScheme/master/s/syntax.ss).
 
 1. [Proposals and implementations for macros in Scheme](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/doc/macros/) from the CMU Scheme Repository
 
@@ -328,20 +400,20 @@ been recently maintained (not in the last 12 years).
 	The portable software includes:
 
 	* SLIB is a portable scheme library. It runs on most schemes.
-	* SSAX (from the website) This project offers tools to inter-convert between an angular-bracket and a more efficient S-expression-based notations for markup documents, and to manipulate and query xML data in Scheme.
-	* SDOM This is an implementation of the W3C DOM recommendation (Level 3) in scheme.
+	* SSAX (from the website) - This project offers tools to inter-convert between an angular-bracket and a more efficient S-expression-based notations for markup documents, and to manipulate and query xML data in Scheme.
+	* SDOM - This is an implementation of the W3C DOM recommendation (Level 3) in scheme.
 	* Spells is a portable library, running on several Schemes.
 	* object-dump is a library for dumping (serializing) and retrieving objects to/from ports.
 	* Sparks is an object database for Scheme, using prometheus as object system.
 	* Conjure is a build tool in the spirit of the well known Make program
-	* SchemeDS An executable implementation of the Denotational Semantics for Scheme
-	* simpler-macros A portable macro and module system for Scheme in Scheme
-	* common-scheme A system that allows you to write portable code that will run on many implementations.
-	* mod_lisp An Apache module that uses an extremely simple protocol over a socket to communicate with your separately running process. There is a implementation of the bare-bones protocol for R5RS Scheme.
-	* magic Magic is a simple web application framework.
+	* SchemeDS - An executable implementation of the Denotational Semantics for Scheme
+	* simpler-macros - A portable macro and module system for Scheme in Scheme
+	* common-scheme - A system that allows you to write portable code that will run on many implementations.
+	* mod_lisp - An Apache module that uses an extremely simple protocol over a socket to communicate with your separately running process. There is a implementation of the bare-bones protocol for R5RS Scheme.
+	* magic - Magic is a simple web application framework.
 	* Schelog is an embedding of Prolog-style logic programming in Scheme.
-	* text-template a text template library for Scheme
-	* Askemos Use Scheme and SQLite in byzantine replication with Erlang style communication.
+	* text-template - a text template library for Scheme
+	* Askemos - Use Scheme and SQLite in byzantine replication with Erlang style communication.
 
 	There is also software for specific dialects of Scheme, for object oriented systems, and for compiler construction.
 
@@ -409,3 +481,55 @@ including standards and proposals
 1. [Scheme code for _Scheme and the Art of Programming_](https://github.com/sl424/scheme-programming)
 
 1. [Solutions of problems in _Scheme and the Art of Programming_](https://github.com/AmeerFazal/Scheme-and-The-Art-of-Programming)
+
+## Conformance and Benchmark Testing
+
+	* [Scheme faq](http://community.schemewiki.org/?scheme-faq-standards)
+	* [Scheme r5rs conformance test suite (question on comp.lang.scheme)](https://comp.lang.scheme.narkive.com/cPDByGyC/scheme-r5rs-conformance-test-suite)
+	* [r5rs_pitfalls.scm](http://sisc-scheme.org/r5rs_pitfall.scm)
+	* [R5RS Pitfalls Test Results](http://sisc-scheme.org/r5rs_pitfall.php)
+	* [CPSCM Scheme - R5RS conformance](http://www.omnigia.com/scheme/cpscm/conformance/)
+	* [Benchmarks](https://people.csail.mit.edu/jaffer/CNS/benchmarks)
+	* [r4rstest.scm](http://cvs.savannah.gnu.org/viewvc/*checkout*/scm/scm/r4rstest.scm)
+	* [r7rs-wg1-infra](https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/)
+	* [A stress test of the syntax-rule macro-expander](http://okmij.org/ftp/Scheme/macros.html#syntax-rule-stress-test)
+
+## Online Scheme Communities
+
+1. [R7RS Scheme proposals and ballots homepage](https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/R7RSHomePage.md)
+
+	[r7rs.org](http://r7rs.org) redirects here.
+
+1. [schemers.org](https://schemers.org/)
+
+	* FAQ
+	* textbooks
+	* videos
+	* blogs
+	* standards
+	* tutorials
+	* bibliography
+	* other documents
+	* education
+
+1. [Community-Scheme-Wiki](http://community.schemewiki.org/)
+
+1. [Scheme at MIT](http://groups.csail.mit.edu/mac/projects/scheme/)
+
+1. [The comp.lang.scheme newsgroup](https://groups.google.com/forum/#!forum/comp.lang.scheme)
+
+1. [Planet Scheme](http://www.scheme.dk/planet/)
+
+1. [reddit.com/r/scheme/](https://www.reddit.com/r/scheme/)
+
+1. [#scheme channel on IRC](http://community.schemewiki.org/?%23scheme-on-freenode)
+
+1. [Scheme Chat Rooms on IRC](https://netsplit.de/channels/?chat=scheme)
+
+1. [Scheme Digest mailing list](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/mail/)
+
+	Only old archives are here.
+
+1. [Scheme news](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/news/)
+
+	Only old archives are here.

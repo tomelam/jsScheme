@@ -20,13 +20,16 @@ Possibly jsScheme be divided into four parts:
 1. The *Core Part* containing just JavaScript code, having no dependencies upon any HTML,
 that maintains the Scheme environment and evaluates Scheme expressions and
 outputs Scheme results;
+
 2. the *Experimenter's Part* containing just the user input ```<textarea>```,
-the Result cell, and JavaScript code to connect it to the *Core Part*;
+the Result cell, and code to connect it to the *Core Part*;
+
 3. the *Implementer's Part* containing part containing the Log ```<textarea>```,
-the Symbols table, and JavaScript code to connect it to the *Experimenter's Part*;
+the Symbols table, and code to connect it to the *Experimenter's Part*;
 and
+
 4. the *Interactive Introduction Page* containing a text introduction to jsScheme
-and links to background information and JavaScript code to connect it to the
+and links to background information and code to connect it to the
 *Implementer's Part*.
 
 The *Core Part* will utilities for jQuery and HTML, and Alexander Sukhoverkhov's
@@ -36,7 +39,9 @@ The *Interactive Introduction Page* will contain links to important and
 useful background material:
 
 1. [background.html](background.md)
+
 2. [quickref.html](quickref.md)
+
 3. [A Sequential Web-Application Demo](https://github.com/tomelam/sequential_web_app_demo)
 
 ## Features
