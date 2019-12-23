@@ -110,14 +110,14 @@ primitives:
 
 * `$wrap`
 
-	[Untested.] Give a raw HTML object a jQuery wrapping:
+	Give a raw HTML object a jQuery wrapping:
 
 		($wrap ($ "#symbols" "get" 0)) => #obj<function(e,t){return new k.fn.init(e,t)}>
 
 
 * `$unwrap`
 
-	[Untested.] Get a raw HTML object from inside a jQuery wrapping:
+	[Not working.] Get a raw HTML object from inside a jQuery wrapping:
 
 		($unwrap ($ "#symbols))
 
