@@ -2676,10 +2676,12 @@ function showSymbols() {
   (js-invoke element "setAttribute" attribute value))
 
 (define (get-attr selector attribute)
-  (js-invoke (js-eval selector) "getAttribute" attribute))
+  (js-invoke (js-eval (string-append "$(" (make-js-string selector) ")"))
+	     "attr" attribute))
 
 (define (set-attr selector attribute value)
-  (js-invoke (js-eval selector) "setAttribute" attribute value))
+  (js-invoke (js-eval (string-append "$(" (make-js-string selector) ")"))
+	     "attr" attribute value))
 
 ;;;; jQuery
 
@@ -2696,23 +2698,31 @@ function showSymbols() {
       (js-eval (string-append "$(" (make-js-string selector) ")")) method))
     (($ selector method arg)
      (js-invoke
-      (js-eval (string-append "$(" (make-js-string selector) ")")) method arg))))
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method arg))
+    (($ selector method arg1 arg2)
+     (js-invoke
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method argi arg2))
+    (($ selector method arg1 arg2 arg3)
+     (js-invoke
+      (js-eval (string-append "$(" (make-js-string selector) ")")) method arg1 arg2 arg3))))
 
 (define ($wrap element)
   (js-call (js-eval "$") element))
 
 (define ($unwrap $element)
-  (js-invoke $element "get" 0)
+  (js-invoke $element "get" 0))
 
 (define (add-el query selector relative-position html)
   (js-invoke ($ query selector) relative-position html))
 
 ;; Example style parameter: "'.button { background-color:rgb(80,200,80); }'"
+;;(define (add-style style)
+;;  (set-el-attr
+;;   (js-invoke
+;;    (js-invoke (add-el "script" "first" "after" "<style></style>") "next") "get" 0)
+;;   "type" "text/css"))
 (define (add-style style)
-  (set-el-attr
-   (js-invoke
-    (js-invoke (add-el "script" "first" "after" "<style></style>") "next") "get" 0)
-   "type" "text/css"))
+  (js-eval (string-append "$('<style>').prop('type','text/css').html(" (make-js-string style) ").appendTo('head')")))
 </xmp>
 </body>
 </html>

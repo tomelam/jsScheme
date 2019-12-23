@@ -135,18 +135,18 @@ primitives:
 
 * ```get-attr```
 
-	[Not working yet.] Returns an attribute of an HTML object, given a jQuery selector for a single HTML element:
+	Returns an attribute of an HTML object, given a jQuery selector for a single HTML element:
 
 		(get-attr "#symbols" "id") => "symbols"
 
 * ```set-attr```
 
-	[Not working yet.] Sets an attribute of an HTML object, given a jQuery selectro for a single HTML element and a value:
+	Sets an attribute of an HTML object, given a jQuery selectro for a single HTML element and a value:
 
-		(set-attr "#symbols" "id" "symbols2") => ?
+		(set-attr "#symbols" "id" "symbols2") => #obj<function(e,t){return new k.fn.init(e,t)}>
 
 * ```add-style```
 
-	[Not finished yet.] Add a CSS style to the page:
+	Add a CSS style to the page:
 
-		(add-style ".button { background-color:rgb(80,200,80); }") => ?
+		(add-style ".button { background-color:rgb(80,200,80); }") => #obj<function(e,t){return new k.fn.init(e,t)}>
