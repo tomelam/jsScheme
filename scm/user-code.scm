@@ -13,6 +13,6 @@
 
 ;; Not working: ($unwrap ($wrap ($ "#symbols" "get" 0)))
 
-(get-attr "#symbols" "id")
-(set-attr "#symbols" "id" "symbols2")
-(get-attr "#symbols2" "id")
+(get-attr "#bar" "id")
+(set-attr "#bar" "id" "foo")
+(get-attr "#foo" "id")
