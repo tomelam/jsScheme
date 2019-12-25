@@ -1524,28 +1524,6 @@ var theTC = new Object();
 
 var buf1='';
 
-function key1(srcElement) {
-    console.log("key1");
-    console.dir(srcElement);
-    buf1 = srcElement.key;
-    console.log("srcElement.value => " + srcElement.value);
-    console.log("key1 key=> " + buf1);
-}
-
-function key2(srcElement) {
-    console.log("key2");
-    console.dir(srcElement);
-    var buf2 = srcElement.key;
-    console.log("srcElement.value => " + srcElement.value);
-    console.log("key2 key=> " + buf2);
-    var re = /(\n|\r\n){2}$/;
-    //var re = /\n/;
-    if( !re.test(buf1) && re.test(buf2) ) {
-	console.log("found \n or \r\n");
-	clickEval('txt'); buf1 = buf2;
-    }
-}
-
 function checkEdit(srcElement) {
     var e = srcElement, p = new Parser(e.value);
     var o = p.getObject();
