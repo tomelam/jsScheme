@@ -1,5 +1,3 @@
-(display "util.scm")
-
 (define first car)
 (define second cadr)
 (define third caddr)

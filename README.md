@@ -1,6 +1,6 @@
-# jsScheme&mdash;Scheme in JavaScript
+# jsScheme--Scheme in JavaScript
 
-```jsScheme``` is a nearly complete implementation of R⁵RS Scheme language in
+```jsScheme``` is a nearly complete implementation of R5RS Scheme language in
 JavaScript. It is described on Chris Double's website in a
 [2006 blog post](https://bluishcoder.co.nz/2006/05/05/scheme-implementation-in-javascript.html).
 Archive.com has captured
@@ -14,7 +14,7 @@ Archive.com also has
 [captures of Alex Yakovlev's earlier, original version of jsScheme](http://web.archive.org/web/*/http://alex.ability.ru/scheme.html),
 although those captures might not be working.
 
-```jsScheme``` runs inside ```this web page```.
+```jsScheme``` runs inside [this web page](scheme.html).
 Possibly jsScheme be divided into four parts:
 
 1. The *Core Part* containing just JavaScript code, having no dependencies upon any HTML,
@@ -121,7 +121,7 @@ terms.
 1. R. Kent Dybvig,
 [The Scheme Programming Language, Second Edition](http://www.scheme.com/tspl2d/).
 
-2. [Revised⁵ Report on the Algorithmic Language Scheme R⁵RS](http://www.schemers.org/Documents/Standards/R5RS/).
+2. [Revised 5 Report on the Algorithmic Language Scheme R⁵RS](http://www.schemers.org/Documents/Standards/R5RS/).
 
 3. [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sites/default/files/sicp/index.html).
 
@@ -153,6 +153,6 @@ from the same group at IBM's T.J. Watson Research Center
 who developed [Jikes](http://www.ibm.com/developerworks/oss/jikes/),
 [moved to Sourceforge.net](https://sourceforge.net/projects/jikes/).
 
-3. [SISC - Second Interpreter of Scheme Code](http://sisc.sourceforge.net/), R⁵RS compliant.
+3. [SISC - Second Interpreter of Scheme Code](http://sisc.sourceforge.net/), R5RS compliant.
 
 4. [Bigloo compiler](http://www-sop.inria.fr/mimosa/fp/Bigloo/), very efficient, can produce Java bytecode.

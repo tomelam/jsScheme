@@ -1,17 +1,19 @@
 <h1>Background</h1>
-<p><a href="https://bluishcoder.co.nz/2006/05/05/scheme-implementation-in-javascript.html">Chris Double's blog post on jsScheme</a>
-links to resources related to jsScheme and
-<a href="https://github.com/tomelam/sequential_web_app_demo">sequential web-application demo using jsScheme</a>.
-Those and other resources are listed here because they provide a rich background
-on the use of languages interpretted in or compiled to JavaScript,
-<code>define-syntax</code> and <code>syntax-rules</code>,
-and the use of continuations or continuation-passing style in
-web applications.
-The resources are papers and running implementations.
-The bibliographies of the papers list much related research.
+<p>The resources listed here provide a rich background
+on JavaScript in the web browser,
+on the use of continuations or continuation-passing style in
+web applications,
+and on macro systems for Scheme.
+For even more resources related to
+the use of continuations in web applications,
+there is <a href="https://github.com/tomelam/sequential_web_app_demo">a sequential web-application demo using jsScheme</a>.
+The sections below list some papers, Scheme implementations, and Scheme
+software.
 Many of the papers and resources have moved but have been tracked down
 and recorded below, in no particular order, with some of the links
 updated.</p>
+<p>Some of the JavaScripts in the web browser are implemented using Emscripten.
+From Wikipedia: &quot;Emscripten is a source-to-source compiler that runs as a back end to the LLVM compiler and produces a subset of JavaScript known as asm.js. It can also produce WebAssembly... . asm.js can be compiled by browsers ahead of time meaning that the compiled programs can run much faster than those traditionally written in JavaScript.&quot;</p>
 <h2>Papers</h2>
 <ol>
 <li>
@@ -263,9 +265,18 @@ exercises are in Scheme. Often referred to simply as <em>SICP</em>. There is a s
 </li>
 <li>
 <p><a href="https://www.biwascheme.org/">BiwaScheme</a></p>
-<ol>
-<li><a href="http://www.omnigia.com/scheme/cpscm/home/">CPSCM Scheme</a></li>
-</ol>
+<p>&quot;BiwaScheme is a Scheme interpreter written in JavaScript.</p>
+<p>&quot;Works with web browsers (including mobile devices) and Node.js.&quot;</p>
+</li>
+<li>
+<p><a href="https://github.com/ashinn/chibi-scheme">chibi-scheme</a></p>
+<p>&quot;Chibi-Scheme is a very small library intended for use as an extension and scripting language in C programs. In addition to support for lightweight VM-based threads, each VM itself runs in an isolated heap allowing multiple VMs to run simultaneously in different OS threads.</p>
+<p>&quot;There are no external dependencies so is relatively easy to drop into any project.</p>
+<p>&quot;The default repl language contains all bindings from R7RS small, available explicitly as the (scheme small) library. The language is built in layers, however - see the manual for instructions on compiling with fewer features or requesting a smaller language on startup.</p>
+<p>&quot;Chibi-Scheme is known to work on 32 and 64-bit Linux, FreeBSD, NetBSD, OpenBSD and OS X, Plan 9, Windows (using Cygwin), iOS, Android, ARM and Emscripten. Basic support for native Windows desktop also exists. See README-win32.md for details and build instructions.&quot;</p>
+</li>
+<li>
+<p><a href="http://www.omnigia.com/scheme/cpscm/home/">CPSCM Scheme</a></p>
 <p>&quot;CPSCM is a Scheme compiler based on CPS conversion. It outputs code for two back-ends: Javascript and Common Lisp (as well as a &quot;simple Scheme&quot; back-end). There is an online CPSCM compiler that lets you play with the compiler right from your browser without downloading anything. Also see the bubble sort example which combines compiled Scheme and DHTML.&quot;</p>
 <p>CPSCM's installation instructions didn't work for me and it appears not to have
 been recently maintained (not in the last 12 years).</p>
@@ -470,16 +481,35 @@ Scheme-related stuff.</li>
 </li>
 </ol>
 <h2>Conformance and Benchmark Testing</h2>
-<pre><code>* [Scheme faq](http://community.schemewiki.org/?scheme-faq-standards)
-* [Scheme r5rs conformance test suite (question on comp.lang.scheme)](https://comp.lang.scheme.narkive.com/cPDByGyC/scheme-r5rs-conformance-test-suite)
-* [r5rs_pitfalls.scm](http://sisc-scheme.org/r5rs_pitfall.scm)
-* [R5RS Pitfalls Test Results](http://sisc-scheme.org/r5rs_pitfall.php)
-* [CPSCM Scheme - R5RS conformance](http://www.omnigia.com/scheme/cpscm/conformance/)
-* [Benchmarks](https://people.csail.mit.edu/jaffer/CNS/benchmarks)
-* [r4rstest.scm](http://cvs.savannah.gnu.org/viewvc/*checkout*/scm/scm/r4rstest.scm)
-* [r7rs-wg1-infra](https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/)
-* [A stress test of the syntax-rule macro-expander](http://okmij.org/ftp/Scheme/macros.html#syntax-rule-stress-test)
-</code></pre>
+<ol>
+<li>
+<p><a href="http://community.schemewiki.org/?scheme-faq-standards">Scheme faq</a></p>
+</li>
+<li>
+<p><a href="https://comp.lang.scheme.narkive.com/cPDByGyC/scheme-r5rs-conformance-test-suite">Scheme r5rs conformance test suite (question on comp.lang.scheme)</a></p>
+</li>
+<li>
+<p><a href="http://sisc-scheme.org/r5rs_pitfall.scm">r5rs_pitfalls.scm</a></p>
+</li>
+<li>
+<p><a href="http://sisc-scheme.org/r5rs_pitfall.php">R5RS Pitfalls Test Results</a></p>
+</li>
+<li>
+<p><a href="http://www.omnigia.com/scheme/cpscm/conformance/">CPSCM Scheme - R5RS conformance</a></p>
+</li>
+<li>
+<p><a href="https://people.csail.mit.edu/jaffer/CNS/benchmarks">Benchmarks</a></p>
+</li>
+<li>
+<p><a href="http://cvs.savannah.gnu.org/viewvc/*checkout*/scm/scm/r4rstest.scm">r4rstest.scm</a></p>
+</li>
+<li>
+<p><a href="https://bitbucket.org/cowan/r7rs-wg1-infra/src/default/">r7rs-wg1-infra</a></p>
+</li>
+<li>
+<p><a href="http://okmij.org/ftp/Scheme/macros.html#syntax-rule-stress-test">A stress test of the syntax-rule macro-expander</a></p>
+</li>
+</ol>
 <h2>Online Scheme Communities</h2>
 <ol>
 <li>

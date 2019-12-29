@@ -1,11 +1,26 @@
-<h1>Quick Reference to jsScheme's Foreign Function Interface (FFI)</h1>
-<h2>The <code>js-eval</code> and <code>js-invoke</code> Primitives</h2>
+<h1>jsScheme Reference to jsScheme's Foreign Function Interface (FFI)</h1>
+<h2>Pre-Compiling jsScheme's Library</h2>
+<p>jsScheme's library can be compiled by evaluating</p>
+<pre><code>	   (compile-lib)
+</code></pre>
+<p>The result, which will be printed in the Log, can be copied and
+edited into jsScheme's init() function for faster startup.</p>
+<h2>Checkboxes Hidden in This Version.</h2>
+<p>The original version of jsScheme had checkboxes to enable or disable
+input logging, results logging, and just-in-time compilation
+using the built-in compiler.
+They can be displayed by removing the &quot;display:hidden&quot; style
+from the paragraph tag (<!-- raw HTML omitted -->) containing them.
+Note that the just-in-time compiler might not work in Firefox.
+See &quot;Bugs&quot; in the <a href="README.html">README</a>.</p>
+<h2>jsScheme's Foreign Function Interface (FFI)</h2>
+<h3>The <code>js-eval</code> and <code>js-invoke</code> Primitives</h3>
 <p>The <code>js-eval</code> and <code>js-invoke</code> primitives cause one or more of
 their arguments to be passed to the JavaScript environment to be
 evaluated. If and when a value returned from the JavaScript environment
 is an integer or string, it can be used as the corresponding type,
 i.e. an integer or string, respectively, in jsScheme. Examples:</p>
-<h3>The <code>js-eval</code> Primitive</h3>
+<h4>The <code>js-eval</code> Primitive</h4>
 <p>The <code>js-eval</code> primitive takes a string as an argument and executes it as
 a line of JavaScript, i.e. passes it to the JavaScript environment
 to be evaluated. Examples:</p>
@@ -37,7 +52,7 @@ an argument for <code>js-eval</code>:</li>
 		  (js-eval (string-append &quot;document.getElementById('&quot; id &quot;')&quot;))) =&gt; #lambda
 		(id-element &quot;foo&quot;) =&gt; #obj&lt;HTMLDivElement&gt;
 </code></pre>
-<h3>The <code>js-invoke</code> Primitive</h3>
+<h4>The <code>js-invoke</code> Primitive</h4>
 <p>The <code>js-invoke</code> primitive takes a JavaScript object as its first
 argument, the name of a method of that object, and zero to three
 arguments to that method. It invokes the method on the object.
@@ -78,7 +93,7 @@ procedure <code>vector-ref</code>:</li>
 		(define div (vector-ref divs 2)) =&gt; #obj&lt;HTMLDivElement&gt;
 		(js-invoke div &quot;getAttribute&quot; &quot;id&quot;) =&gt; &quot;time&quot;
 </code></pre>
-<h2>Manipulating the DOM</h2>
+<h3>Manipulating the DOM</h3>
 <p>jsScheme uses jsQuery v3.4.1. The <code>js-eval</code> and <code>js-invoke</code> primititves can be
 used to access it. Fuctions are being developed to facilitate the use of these
 primitives:</p>

@@ -2,7 +2,8 @@
   <head>
     <title>jsScheme - Scheme interpreter in JavaScript</title>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/scheme-interface.js"></script>
+    <script type="text/javascript" src="js/scheme-interpreter.js"></script>
+    <script type="text/javascript" src="js/scheme-library.js"></script>
     <style type="text/css">
       TABLE { background: #A0A0A0; }
       TD { background: white; }
@@ -24,7 +25,9 @@
 	      </tr>
 	      <tr>
 		<td rowspan="4" colspan="2">
-		  <textarea id="txt" cols="70" rows="10"></textarea>
+		  <textarea id="txt" cols="70" rows="10"
+			    onkeydown="key1this)"
+			    onkeyup="key2(this)"></textarea>
 		</td>
 		<td>
 		  <input id="evalButton" type="button" class="button"
@@ -163,8 +166,6 @@
 	</tr>
       </table>
     </form>
-    <textarea id="scheme" cols="70" rows="10" >
-    </textarea>
-    <textarea id="util" style="display:none"></textarea>
+    <textarea id="scheme" cols="70" rows="10" style="display:none"></textarea>
   </body>
 </html>

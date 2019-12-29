@@ -1,5 +1,3 @@
-(display "lib.scm")
-
 (define call/cc call-with-current-continuation)
 
 (define (*meta-continuation* v)

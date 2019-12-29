@@ -1,6 +1,27 @@
-# Quick Reference to jsScheme's Foreign Function Interface (FFI)
+# jsScheme Reference to jsScheme's Foreign Function Interface (FFI)
 
-## The ```js-eval``` and ```js-invoke``` Primitives
+## Pre-Compiling jsScheme's Library
+
+jsScheme's library can be compiled by evaluating
+```
+	   (compile-lib)
+```
+The result, which will be printed in the Log, can be copied and
+edited into jsScheme's init() function for faster startup.
+
+## Checkboxes Hidden in This Version.
+
+The original version of jsScheme had checkboxes to enable or disable
+input logging, results logging, and just-in-time compilation
+using the built-in compiler.
+They can be displayed by removing the "display:hidden" style
+from the paragraph tag (<p>) containing them.
+Note that the just-in-time compiler might not work in Firefox.
+See "Bugs" in the [README](README.html).
+
+## jsScheme's Foreign Function Interface (FFI)
+
+### The ```js-eval``` and ```js-invoke``` Primitives
 
 The ```js-eval``` and ```js-invoke``` primitives cause one or more of
 their arguments to be passed to the JavaScript environment to be
@@ -8,7 +29,7 @@ evaluated. If and when a value returned from the JavaScript environment
 is an integer or string, it can be used as the corresponding type,
 i.e. an integer or string, respectively, in jsScheme. Examples:
 
-### The ```js-eval``` Primitive
+#### The ```js-eval``` Primitive
 
 The ```js-eval``` primitive takes a string as an argument and executes it as
 a line of JavaScript, i.e. passes it to the JavaScript environment
@@ -41,7 +62,7 @@ an argument for ```js-eval```:
 		(id-element "foo") => #obj<HTMLDivElement>
 ```
 
-### The ```js-invoke``` Primitive
+#### The ```js-invoke``` Primitive
 
 The ```js-invoke``` primitive takes a JavaScript object as its first
 argument, the name of a method of that object, and zero to three
@@ -84,7 +105,7 @@ procedure ```vector-ref```:
 		(js-invoke div "getAttribute" "id") => "time"
 ```
 
-## Manipulating the DOM
+### Manipulating the DOM
 
 jsScheme uses jsQuery v3.4.1. The ```js-eval``` and ```js-invoke``` primititves can be
 used to access it. Fuctions are being developed to facilitate the use of these
